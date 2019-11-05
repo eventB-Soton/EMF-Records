@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ac.soton.eventb.structures/src" modelPluginID="ac.soton.eventb.structures"
+    templateDirectory="/org.eventb.emf.core/templates" dynamicTemplates="true" modelName="Structures"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>structures.ecore</foreignModel>
+  <genPackages prefix="Structures" basePackage="ac.soton.eventb" disposableProviderFactory="true"
+      extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="structures.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="structures.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="structures.ecore#//Multiplicity/ONE"/>
+      <genEnumLiterals ecoreEnumLiteral="structures.ecore#//Multiplicity/MANY"/>
+      <genEnumLiterals ecoreEnumLiteral="structures.ecore#//Multiplicity/OPTIONAL"/>
+    </genEnums>
+    <genClasses ecoreClass="structures.ecore#//Structure">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structures.ecore#//Structure/subsets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structures.ecore#//Structure/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="structures.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute structures.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute structures.ecore#//Field/multiplicity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

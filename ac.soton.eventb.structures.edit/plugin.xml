@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <factory
+            uri="http://soton.ac.uk/models/eventb/structures/2019"
+            class="ac.soton.eventb.structures.provider.StructuresItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://emf.eventb.org/models/core/context/2014"
+            class="ac.soton.eventb.structures.provider.StructuresItemProviderAdapterFactory$CoreChildCreationExtender"/>
+   </extension>
+   
+     <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <extender
+            uri="http://emf.eventb.org/models/core/machine/2014"
+            class="ac.soton.eventb.structures.provider.StructuresItemProviderAdapterFactory$CoreChildCreationExtender"/>
+   </extension>
+   
+      <extension
+         point="org.eventb.emf.persistence.synchroniser">
+      <emfPackage
+            name="Structures Package"
+            nsURI="http://soton.ac.uk/models/eventb/structures/2019">
+         <synchroniser
+               emf_class="Structure"
+               name="Structure Synchroniser"
+               rodin_id="ac.soton.eventb.emf.core.extension.persistence.serialisedExtension"
+               synchroniser_class="ac.soton.eventb.emf.core.extension.persistence.SerialisedExtensionSynchroniser">
+         </synchroniser>
+      </emfPackage>
+   </extension>
+
+</plugin>
