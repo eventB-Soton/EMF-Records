@@ -12,9 +12,9 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://soton.ac.uk/models/eventb/structures/2019"
-            class="ac.soton.eventb.structures.StructuresPackage"
-            genModel="model/structures.genmodel"/>
+            uri="http://soton.ac.uk/models/eventb/records/2019"
+            class="ac.soton.eventb.records.RecordsPackage"
+            genModel="model/records.genmodel"/>
    </extension>
 
 </plugin>

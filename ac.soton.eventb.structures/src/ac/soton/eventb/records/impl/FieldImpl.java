@@ -4,13 +4,13 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.impl;
+package ac.soton.eventb.records.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.impl.EventBNamedCommentedDataElaborationElementImpl;
 
-import ac.soton.eventb.structures.Field;
-import ac.soton.eventb.structures.Multiplicity;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.Field;
+import ac.soton.eventb.records.Multiplicity;
+import ac.soton.eventb.records.RecordsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ac.soton.eventb.structures.impl.FieldImpl#getType <em>Type</em>}</li>
- *   <li>{@link ac.soton.eventb.structures.impl.FieldImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link ac.soton.eventb.records.impl.FieldImpl#getType <em>Type</em>}</li>
+ *   <li>{@link ac.soton.eventb.records.impl.FieldImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,7 +89,7 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return StructuresPackage.Literals.FIELD;
+		return RecordsPackage.Literals.FIELD;
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StructuresPackage.FIELD__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordsPackage.FIELD__TYPE, oldType, type));
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 		Multiplicity oldMultiplicity = multiplicity;
 		multiplicity = newMultiplicity == null ? MULTIPLICITY_EDEFAULT : newMultiplicity;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StructuresPackage.FIELD__MULTIPLICITY, oldMultiplicity, multiplicity));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordsPackage.FIELD__MULTIPLICITY, oldMultiplicity, multiplicity));
 	}
 
 	/**
@@ -142,9 +142,9 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StructuresPackage.FIELD__TYPE:
+			case RecordsPackage.FIELD__TYPE:
 				return getType();
-			case StructuresPackage.FIELD__MULTIPLICITY:
+			case RecordsPackage.FIELD__MULTIPLICITY:
 				return getMultiplicity();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -158,10 +158,10 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StructuresPackage.FIELD__TYPE:
+			case RecordsPackage.FIELD__TYPE:
 				setType((String)newValue);
 				return;
-			case StructuresPackage.FIELD__MULTIPLICITY:
+			case RecordsPackage.FIELD__MULTIPLICITY:
 				setMultiplicity((Multiplicity)newValue);
 				return;
 		}
@@ -176,10 +176,10 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StructuresPackage.FIELD__TYPE:
+			case RecordsPackage.FIELD__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case StructuresPackage.FIELD__MULTIPLICITY:
+			case RecordsPackage.FIELD__MULTIPLICITY:
 				setMultiplicity(MULTIPLICITY_EDEFAULT);
 				return;
 		}
@@ -194,9 +194,9 @@ public class FieldImpl extends EventBNamedCommentedDataElaborationElementImpl im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StructuresPackage.FIELD__TYPE:
+			case RecordsPackage.FIELD__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case StructuresPackage.FIELD__MULTIPLICITY:
+			case RecordsPackage.FIELD__MULTIPLICITY:
 				return multiplicity != MULTIPLICITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

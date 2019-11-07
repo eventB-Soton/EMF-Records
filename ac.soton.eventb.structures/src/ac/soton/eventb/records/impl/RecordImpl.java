@@ -4,13 +4,13 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.impl;
+package ac.soton.eventb.records.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.impl.EventBNamedCommentedDataElaborationElementImpl;
 
-import ac.soton.eventb.structures.Field;
-import ac.soton.eventb.structures.Structure;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.Field;
+import ac.soton.eventb.records.Record;
+import ac.soton.eventb.records.RecordsPackage;
 
 import java.util.Collection;
 
@@ -33,20 +33,20 @@ import org.eventb.emf.core.CorePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Structure</b></em>'.
+ * An implementation of the model object '<em><b>Record</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ac.soton.eventb.structures.impl.StructureImpl#getExtensionId <em>Extension Id</em>}</li>
- *   <li>{@link ac.soton.eventb.structures.impl.StructureImpl#getSubsets <em>Subsets</em>}</li>
- *   <li>{@link ac.soton.eventb.structures.impl.StructureImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link ac.soton.eventb.records.impl.RecordImpl#getExtensionId <em>Extension Id</em>}</li>
+ *   <li>{@link ac.soton.eventb.records.impl.RecordImpl#getSubsets <em>Subsets</em>}</li>
+ *   <li>{@link ac.soton.eventb.records.impl.RecordImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StructureImpl extends EventBNamedCommentedDataElaborationElementImpl implements Structure {
+public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl implements Record {
 	/**
 	 * The default value of the '{@link #getExtensionId() <em>Extension Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * @generated not
 	 * @ordered
 	 */
-	protected static final String EXTENSION_ID_EDEFAULT = StructuresPackage.STRUCTURE_EXTENSION_ID;
+	protected static final String EXTENSION_ID_EDEFAULT = RecordsPackage.RECORD_EXTENSION_ID;
 
 	/**
 	 * The cached value of the '{@link #getExtensionId() <em>Extension Id</em>}' attribute.
@@ -75,7 +75,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * @generated
 	 * @ordered
 	 */
-	protected Structure subsets;
+	protected Record subsets;
 
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
@@ -92,7 +92,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StructureImpl() {
+	protected RecordImpl() {
 		super();
 	}
 
@@ -103,7 +103,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return StructuresPackage.Literals.STRUCTURE;
+		return RecordsPackage.Literals.RECORD;
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 		String oldExtensionId = extensionId;
 		extensionId = newExtensionId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StructuresPackage.STRUCTURE__EXTENSION_ID, oldExtensionId, extensionId));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordsPackage.RECORD__EXTENSION_ID, oldExtensionId, extensionId));
 	}
 
 	/**
@@ -132,13 +132,13 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Structure getSubsets() {
+	public Record getSubsets() {
 		if (subsets != null && subsets.eIsProxy()) {
 			InternalEObject oldSubsets = (InternalEObject)subsets;
-			subsets = (Structure)eResolveProxy(oldSubsets);
+			subsets = (Record)eResolveProxy(oldSubsets);
 			if (subsets != oldSubsets) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StructuresPackage.STRUCTURE__SUBSETS, oldSubsets, subsets));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecordsPackage.RECORD__SUBSETS, oldSubsets, subsets));
 			}
 		}
 		return subsets;
@@ -149,7 +149,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Structure basicGetSubsets() {
+	public Record basicGetSubsets() {
 		return subsets;
 	}
 
@@ -158,11 +158,11 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubsets(Structure newSubsets) {
-		Structure oldSubsets = subsets;
+	public void setSubsets(Record newSubsets) {
+		Record oldSubsets = subsets;
 		subsets = newSubsets;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StructuresPackage.STRUCTURE__SUBSETS, oldSubsets, subsets));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordsPackage.RECORD__SUBSETS, oldSubsets, subsets));
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	 */
 	public EList<Field> getFields() {
 		if (fields == null) {
-			fields = new EObjectContainmentEList.Resolving<Field>(Field.class, this, StructuresPackage.STRUCTURE__FIELDS);
+			fields = new EObjectContainmentEList.Resolving<Field>(Field.class, this, RecordsPackage.RECORD__FIELDS);
 		}
 		return fields;
 	}
@@ -185,7 +185,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -199,12 +199,12 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StructuresPackage.STRUCTURE__EXTENSION_ID:
+			case RecordsPackage.RECORD__EXTENSION_ID:
 				return getExtensionId();
-			case StructuresPackage.STRUCTURE__SUBSETS:
+			case RecordsPackage.RECORD__SUBSETS:
 				if (resolve) return getSubsets();
 				return basicGetSubsets();
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -219,13 +219,13 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StructuresPackage.STRUCTURE__EXTENSION_ID:
+			case RecordsPackage.RECORD__EXTENSION_ID:
 				setExtensionId((String)newValue);
 				return;
-			case StructuresPackage.STRUCTURE__SUBSETS:
-				setSubsets((Structure)newValue);
+			case RecordsPackage.RECORD__SUBSETS:
+				setSubsets((Record)newValue);
 				return;
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				getFields().clear();
 				getFields().addAll((Collection<? extends Field>)newValue);
 				return;
@@ -241,13 +241,13 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StructuresPackage.STRUCTURE__EXTENSION_ID:
+			case RecordsPackage.RECORD__EXTENSION_ID:
 				setExtensionId(EXTENSION_ID_EDEFAULT);
 				return;
-			case StructuresPackage.STRUCTURE__SUBSETS:
-				setSubsets((Structure)null);
+			case RecordsPackage.RECORD__SUBSETS:
+				setSubsets((Record)null);
 				return;
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				getFields().clear();
 				return;
 		}
@@ -262,11 +262,11 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StructuresPackage.STRUCTURE__EXTENSION_ID:
+			case RecordsPackage.RECORD__EXTENSION_ID:
 				return EXTENSION_ID_EDEFAULT == null ? extensionId != null : !EXTENSION_ID_EDEFAULT.equals(extensionId);
-			case StructuresPackage.STRUCTURE__SUBSETS:
+			case RecordsPackage.RECORD__SUBSETS:
 				return subsets != null;
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -281,7 +281,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == AbstractExtension.class) {
 			switch (derivedFeatureID) {
-				case StructuresPackage.STRUCTURE__EXTENSION_ID: return CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID;
+				case RecordsPackage.RECORD__EXTENSION_ID: return CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID;
 				default: return -1;
 			}
 		}
@@ -297,7 +297,7 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == AbstractExtension.class) {
 			switch (baseFeatureID) {
-				case CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID: return StructuresPackage.STRUCTURE__EXTENSION_ID;
+				case CorePackage.ABSTRACT_EXTENSION__EXTENSION_ID: return RecordsPackage.RECORD__EXTENSION_ID;
 				default: return -1;
 			}
 		}
@@ -320,4 +320,4 @@ public class StructureImpl extends EventBNamedCommentedDataElaborationElementImp
 		return result.toString();
 	}
 
-} //StructureImpl
+} //RecordImpl

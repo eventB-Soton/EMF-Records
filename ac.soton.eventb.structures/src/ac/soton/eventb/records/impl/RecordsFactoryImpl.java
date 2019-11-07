@@ -4,9 +4,9 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.impl;
+package ac.soton.eventb.records.impl;
 
-import ac.soton.eventb.structures.*;
+import ac.soton.eventb.records.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -23,24 +23,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFactory {
+public class RecordsFactoryImpl extends EFactoryImpl implements RecordsFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static StructuresFactory init() {
+	public static RecordsFactory init() {
 		try {
-			StructuresFactory theStructuresFactory = (StructuresFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/structures/2019"); 
-			if (theStructuresFactory != null) {
-				return theStructuresFactory;
+			RecordsFactory theRecordsFactory = (RecordsFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/records/2019"); 
+			if (theRecordsFactory != null) {
+				return theRecordsFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new StructuresFactoryImpl();
+		return new RecordsFactoryImpl();
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresFactoryImpl() {
+	public RecordsFactoryImpl() {
 		super();
 	}
 
@@ -61,8 +61,8 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case StructuresPackage.STRUCTURE: return createStructure();
-			case StructuresPackage.FIELD: return createField();
+			case RecordsPackage.RECORD: return createRecord();
+			case RecordsPackage.FIELD: return createField();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,7 +76,7 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case StructuresPackage.MULTIPLICITY:
+			case RecordsPackage.MULTIPLICITY:
 				return createMultiplicityFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -91,7 +91,7 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case StructuresPackage.MULTIPLICITY:
+			case RecordsPackage.MULTIPLICITY:
 				return convertMultiplicityToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -103,9 +103,9 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Structure createStructure() {
-		StructureImpl structure = new StructureImpl();
-		return structure;
+	public Record createRecord() {
+		RecordImpl record = new RecordImpl();
+		return record;
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresPackage getStructuresPackage() {
-		return (StructuresPackage)getEPackage();
+	public RecordsPackage getRecordsPackage() {
+		return (RecordsPackage)getEPackage();
 	}
 
 	/**
@@ -154,8 +154,8 @@ public class StructuresFactoryImpl extends EFactoryImpl implements StructuresFac
 	 * @generated
 	 */
 	@Deprecated
-	public static StructuresPackage getPackage() {
-		return StructuresPackage.eINSTANCE;
+	public static RecordsPackage getPackage() {
+		return RecordsPackage.eINSTANCE;
 	}
 
-} //StructuresFactoryImpl
+} //RecordsFactoryImpl

@@ -4,14 +4,14 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.provider;
+package ac.soton.eventb.records.provider;
 
 
 import ac.soton.eventb.emf.core.extension.coreextension.provider.EventBNamedCommentedDataElaborationElementItemProvider;
 
-import ac.soton.eventb.structures.Field;
-import ac.soton.eventb.structures.StructuresFactory;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.Field;
+import ac.soton.eventb.records.RecordsFactory;
+import ac.soton.eventb.records.RecordsPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eventb.emf.core.CorePackage;
 
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.structures.Field} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.records.Field} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -87,7 +87,7 @@ public class FieldItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Field_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Field_type_feature", "_UI_Field_type"),
-				 StructuresPackage.Literals.FIELD__TYPE,
+				 RecordsPackage.Literals.FIELD__TYPE,
 				 true,
 				 false,
 				 false,
@@ -109,7 +109,7 @@ public class FieldItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Field_multiplicity_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Field_multiplicity_feature", "_UI_Field_type"),
-				 StructuresPackage.Literals.FIELD__MULTIPLICITY,
+				 RecordsPackage.Literals.FIELD__MULTIPLICITY,
 				 true,
 				 false,
 				 false,
@@ -155,8 +155,8 @@ public class FieldItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Field.class)) {
-			case StructuresPackage.FIELD__TYPE:
-			case StructuresPackage.FIELD__MULTIPLICITY:
+			case RecordsPackage.FIELD__TYPE:
+			case RecordsPackage.FIELD__MULTIPLICITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -176,13 +176,13 @@ public class FieldItemProvider
 		
 			
 		if (object instanceof EObject && 
-			StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
-			StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+			RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
 		
 			newChildDescriptors.add
 				(createChildParameter
 					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 	StructuresFactory.eINSTANCE.createStructure()));
+				 	RecordsFactory.eINSTANCE.createRecord()));
 	}
 
 }
