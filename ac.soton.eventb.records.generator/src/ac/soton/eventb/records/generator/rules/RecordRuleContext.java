@@ -21,6 +21,7 @@ import org.eventb.emf.core.context.Axiom;
 import org.eventb.emf.core.context. CarrierSet;
 import org.eventb.emf.core.context.Constant;
 import org.eventb.emf.core.context.Context;
+import org.eventb.emf.core.context.ContextPackage;
 
 import ac.soton.emf.translator.TranslationDescriptor;
 import ac.soton.emf.translator.configuration.AbstractRule;
@@ -42,6 +43,7 @@ import ac.soton.eventb.records.Record;
  */
 public class RecordRuleContext extends AbstractRule implements IRule {
 	protected static final EReference components = CorePackage.Literals.PROJECT__COMPONENTS;
+	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
 	
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
@@ -73,9 +75,11 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	    
 	    //constants for record
 	    if (r.getSubsets() != null) {
-	    	String recordCnstCmt = "record translation constant";
-	    	Constant recordCnst = (Constant) Make.constant(recordName, recordCnstCmt);
-	    	cnstList.add(recordCnst);
+	    	if (r.getName()!=r.getSubsets().getName()) {
+	    		String recordCnstCmt = "record translation constant";
+	    		Constant recordCnst = (Constant) Make.constant(recordName, recordCnstCmt);
+	    		cnstList.add(recordCnst);
+	    	}
 	    }
 	    //set for not extending record
 	    else {
@@ -98,16 +102,18 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	    //axms for record
 	    String recordAxmName = "axm_" + r.getName();
 	    String recordAxmPred = "";
-	    if (r.getSubsets() != null)  {
+	    if (r.getSubsets() != null) {
+	    		if (r.getName()!=r.getSubsets().getName())  {
 	    	recordAxmPred = r.getName() + " \u2286 " + r.getSubsets().getName();
 	    	String recordAxmCmt = "record translation axoim";
 	    	Axiom recordAxm = Make.axiom(recordAxmName, false, recordAxmPred, recordAxmCmt);
 	    	axmList.add(recordAxm);
+	    		}
 	    }
 	    
 	    //axm for each record field	    
 	    for (Field f : fields) {
-	    	String axmName = "inv_"+ recordName + "_" + f.getName();
+	    	String axmName = "axm_"+ recordName + "_" + f.getName();
 	    	String multiplicity = f.getMultiplicity().getName();
 	    	String type = "";
 	    	if (multiplicity.equals("ONE"))
@@ -122,12 +128,13 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	 	    String axmPred = f.getName() + " \u2208 " + recordName + type + f.getType();
 	 	    String axmCmt = "record field translation axiom";
 	 	    Axiom axm = Make.axiom(axmName, false,axmPred, axmCmt);
-	 	    axmList.add(axm);
+	 	    axmList.add(axm); 
+	 	    ret.add(Make.descriptor(sourceContext, axioms, axm, 0));
 	    }
-		sourceContext.getAxioms().addAll(axmList);
-		
+	    //sourceContext.getAxioms().addAll(axmList);
+	    
 		// No need to find the project, using null will add it to the current project
-	    ret.add(Make.descriptor(null, components, sourceContext, 1));
+	    //ret.add(Make.descriptor(null, components, sourceContext, 1));
 	
 		return ret;	
 	}

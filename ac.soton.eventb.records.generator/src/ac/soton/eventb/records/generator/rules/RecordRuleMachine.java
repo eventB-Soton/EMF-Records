@@ -71,9 +71,11 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    String recordName = r.getName();
 	    
 	    //var for record
-	    String recordVarCmt = "record translation variable";
-	    Variable recordVar = Make.variable(recordName, recordVarCmt);
-	    varList.add(recordVar);
+	    if (r.getSubsets()!=null & r.getSubsets().getName()!=r.getName()) {
+	    	String recordVarCmt = "record translation variable";
+	    	Variable recordVar = Make.variable(recordName, recordVarCmt);
+	    	varList.add(recordVar);
+	    }
 	    
 	    //vars for fields
 	    EList<Field> fields = r.getFields();
@@ -87,8 +89,10 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    sourceMachine.getVariables().addAll(varList);
 	   
 	    //inv for record
-	    String recordInvName = "inv_" + r.getName();
-	    String recordInvPred = "";
+	    if (r.getSubsets()!=null) {
+	    	if (r.getSubsets().getName()!=r.getName()) {
+	    	String recordInvName = "inv_" + r.getName();
+	    	String recordInvPred = "";
 	    //if (r.getSubsets() != null) 
 	    	recordInvPred = r.getName() + " \u2286 " + r.getSubsets().getName();
 	    //set for not extending record
@@ -106,9 +110,11 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    	
 	    	//recordInvPred = r.getName() + " \u2286 " + setName;
 	    //}
-	    String recordInvCmt = "record translation invariant";
-	    Invariant recordInv = Make.invariant(recordInvName, false, recordInvPred, recordInvCmt);
-	    invList.add(recordInv);
+	    	String recordInvCmt = "record translation invariant";
+	    	Invariant recordInv = Make.invariant(recordInvName, false, recordInvPred, recordInvCmt);
+	    	invList.add(recordInv);
+	    	}
+		}
 	    
 	    //inv for each record field	    
 	    for (Field f : fields) {
@@ -129,7 +135,8 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	 	    Invariant inv = Make.invariant(invName, false, invPred, invCmt);
 	 	    invList.add(inv);
 	    }
-		sourceMachine.getInvariants().addAll(invList);
+		EList<Invariant> invariants = sourceMachine.getInvariants();
+		invariants.addAll(0, invList);
 		
 	 // No need to find the project, using null will add it to the current project
 	    ret.add(Make.descriptor(null, components, sourceMachine, 1));
