@@ -4,12 +4,12 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.util;
+package ac.soton.eventb.records.util;
 
 import ac.soton.eventb.emf.core.extension.coreextension.EventBDataElaboration;
 import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
 
-import ac.soton.eventb.structures.*;
+import ac.soton.eventb.records.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -31,17 +31,17 @@ import org.eventb.emf.core.EventBObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see ac.soton.eventb.structures.StructuresPackage
+ * @see ac.soton.eventb.records.RecordsPackage
  * @generated
  */
-public class StructuresAdapterFactory extends AdapterFactoryImpl {
+public class RecordsAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static StructuresPackage modelPackage;
+	protected static RecordsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -49,9 +49,9 @@ public class StructuresAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresAdapterFactory() {
+	public RecordsAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = StructuresPackage.eINSTANCE;
+			modelPackage = RecordsPackage.eINSTANCE;
 		}
 	}
 
@@ -80,11 +80,11 @@ public class StructuresAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StructuresSwitch<Adapter> modelSwitch =
-		new StructuresSwitch<Adapter>() {
+	protected RecordsSwitch<Adapter> modelSwitch =
+		new RecordsSwitch<Adapter>() {
 			@Override
-			public Adapter caseStructure(Structure object) {
-				return createStructureAdapter();
+			public Adapter caseRecord(Record object) {
+				return createRecordAdapter();
 			}
 			@Override
 			public Adapter caseField(Field object) {
@@ -147,27 +147,27 @@ public class StructuresAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.structures.Structure <em>Structure</em>}'.
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.records.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ac.soton.eventb.structures.Structure
+	 * @see ac.soton.eventb.records.Record
 	 * @generated
 	 */
-	public Adapter createStructureAdapter() {
+	public Adapter createRecordAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.structures.Field <em>Field</em>}'.
+	 * Creates a new adapter for an object of class '{@link ac.soton.eventb.records.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ac.soton.eventb.structures.Field
+	 * @see ac.soton.eventb.records.Field
 	 * @generated
 	 */
 	public Adapter createFieldAdapter() {
@@ -312,4 +312,4 @@ public class StructuresAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //StructuresAdapterFactory
+} //RecordsAdapterFactory

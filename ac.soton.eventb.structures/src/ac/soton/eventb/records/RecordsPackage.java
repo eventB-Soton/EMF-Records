@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures;
+package ac.soton.eventb.records;
 
 import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 
@@ -25,16 +25,16 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see ac.soton.eventb.structures.StructuresFactory
+ * @see ac.soton.eventb.records.RecordsFactory
  * @model kind="package"
  * @generated
  */
-public interface StructuresPackage extends EPackage {
+public interface RecordsPackage extends EPackage {
 	
 	/**
 	 * 
 	 */
-	String STRUCTURE_EXTENSION_ID = "ac.soton.eventb.structures";
+	String RECORD_EXTENSION_ID = "ac.soton.eventb.records";
 			
 	/**
 	 * The package name.
@@ -42,7 +42,7 @@ public interface StructuresPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "structures";
+	String eNAME = "records";
 
 	/**
 	 * The package namespace URI.
@@ -50,7 +50,7 @@ public interface StructuresPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://soton.ac.uk/models/eventb/structures/2019";
+	String eNS_URI = "http://soton.ac.uk/models/eventb/records/2019";
 
 	/**
 	 * The package namespace name.
@@ -58,7 +58,7 @@ public interface StructuresPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "structures";
+	String eNS_PREFIX = "records";
 
 	/**
 	 * The singleton instance of the package.
@@ -66,17 +66,17 @@ public interface StructuresPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	StructuresPackage eINSTANCE = ac.soton.eventb.structures.impl.StructuresPackageImpl.init();
+	RecordsPackage eINSTANCE = ac.soton.eventb.records.impl.RecordsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link ac.soton.eventb.structures.impl.StructureImpl <em>Structure</em>}' class.
+	 * The meta object id for the '{@link ac.soton.eventb.records.impl.RecordImpl <em>Record</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ac.soton.eventb.structures.impl.StructureImpl
-	 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getStructure()
+	 * @see ac.soton.eventb.records.impl.RecordImpl
+	 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getRecord()
 	 * @generated
 	 */
-	int STRUCTURE = 0;
+	int RECORD = 0;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -85,7 +85,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__ANNOTATIONS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ANNOTATIONS;
+	int RECORD__ANNOTATIONS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ANNOTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
@@ -94,7 +94,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__EXTENSIONS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__EXTENSIONS;
+	int RECORD__EXTENSIONS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__EXTENSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
@@ -103,7 +103,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__ATTRIBUTES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ATTRIBUTES;
+	int RECORD__ATTRIBUTES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ATTRIBUTES;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -112,7 +112,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__REFERENCE = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__REFERENCE;
+	int RECORD__REFERENCE = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
@@ -121,7 +121,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__GENERATED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__GENERATED;
+	int RECORD__GENERATED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
@@ -130,7 +130,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__LOCAL_GENERATED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__LOCAL_GENERATED;
+	int RECORD__LOCAL_GENERATED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__LOCAL_GENERATED;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__INTERNAL_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__INTERNAL_ID;
+	int RECORD__INTERNAL_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -148,7 +148,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__COMMENT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__COMMENT;
+	int RECORD__COMMENT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -157,7 +157,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__NAME = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__NAME;
+	int RECORD__NAME = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Elaborates</b></em>' reference.
@@ -166,7 +166,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__ELABORATES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ELABORATES;
+	int RECORD__ELABORATES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ELABORATES;
 
 	/**
 	 * The feature id for the '<em><b>Data Kind</b></em>' attribute.
@@ -175,7 +175,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__DATA_KIND = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__DATA_KIND;
+	int RECORD__DATA_KIND = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__DATA_KIND;
 
 	/**
 	 * The feature id for the '<em><b>Extension Id</b></em>' attribute.
@@ -184,7 +184,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__EXTENSION_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 0;
+	int RECORD__EXTENSION_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Subsets</b></em>' reference.
@@ -193,7 +193,7 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__SUBSETS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
+	int RECORD__SUBSETS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -202,23 +202,23 @@ public interface StructuresPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE__FIELDS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
+	int RECORD__FIELDS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Structure</em>' class.
+	 * The number of structural features of the '<em>Record</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURE_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
+	int RECORD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link ac.soton.eventb.structures.impl.FieldImpl <em>Field</em>}' class.
+	 * The meta object id for the '{@link ac.soton.eventb.records.impl.FieldImpl <em>Field</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ac.soton.eventb.structures.impl.FieldImpl
-	 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getField()
+	 * @see ac.soton.eventb.records.impl.FieldImpl
+	 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getField()
 	 * @generated
 	 */
 	int FIELD = 1;
@@ -350,86 +350,86 @@ public interface StructuresPackage extends EPackage {
 	int FIELD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link ac.soton.eventb.structures.Multiplicity <em>Multiplicity</em>}' enum.
+	 * The meta object id for the '{@link ac.soton.eventb.records.Multiplicity <em>Multiplicity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ac.soton.eventb.structures.Multiplicity
-	 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getMultiplicity()
+	 * @see ac.soton.eventb.records.Multiplicity
+	 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getMultiplicity()
 	 * @generated
 	 */
 	int MULTIPLICITY = 2;
 
 
 	/**
-	 * Returns the meta object for class '{@link ac.soton.eventb.structures.Structure <em>Structure</em>}'.
+	 * Returns the meta object for class '{@link ac.soton.eventb.records.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Structure</em>'.
-	 * @see ac.soton.eventb.structures.Structure
+	 * @return the meta object for class '<em>Record</em>'.
+	 * @see ac.soton.eventb.records.Record
 	 * @generated
 	 */
-	EClass getStructure();
+	EClass getRecord();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.structures.Structure#getSubsets <em>Subsets</em>}'.
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.records.Record#getSubsets <em>Subsets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Subsets</em>'.
-	 * @see ac.soton.eventb.structures.Structure#getSubsets()
-	 * @see #getStructure()
+	 * @see ac.soton.eventb.records.Record#getSubsets()
+	 * @see #getRecord()
 	 * @generated
 	 */
-	EReference getStructure_Subsets();
+	EReference getRecord_Subsets();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.structures.Structure#getFields <em>Fields</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.records.Record#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Fields</em>'.
-	 * @see ac.soton.eventb.structures.Structure#getFields()
-	 * @see #getStructure()
+	 * @see ac.soton.eventb.records.Record#getFields()
+	 * @see #getRecord()
 	 * @generated
 	 */
-	EReference getStructure_Fields();
+	EReference getRecord_Fields();
 
 	/**
-	 * Returns the meta object for class '{@link ac.soton.eventb.structures.Field <em>Field</em>}'.
+	 * Returns the meta object for class '{@link ac.soton.eventb.records.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Field</em>'.
-	 * @see ac.soton.eventb.structures.Field
+	 * @see ac.soton.eventb.records.Field
 	 * @generated
 	 */
 	EClass getField();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ac.soton.eventb.structures.Field#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.records.Field#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ac.soton.eventb.structures.Field#getType()
+	 * @see ac.soton.eventb.records.Field#getType()
 	 * @see #getField()
 	 * @generated
 	 */
 	EAttribute getField_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ac.soton.eventb.structures.Field#getMultiplicity <em>Multiplicity</em>}'.
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.records.Field#getMultiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Multiplicity</em>'.
-	 * @see ac.soton.eventb.structures.Field#getMultiplicity()
+	 * @see ac.soton.eventb.records.Field#getMultiplicity()
 	 * @see #getField()
 	 * @generated
 	 */
 	EAttribute getField_Multiplicity();
 
 	/**
-	 * Returns the meta object for enum '{@link ac.soton.eventb.structures.Multiplicity <em>Multiplicity</em>}'.
+	 * Returns the meta object for enum '{@link ac.soton.eventb.records.Multiplicity <em>Multiplicity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Multiplicity</em>'.
-	 * @see ac.soton.eventb.structures.Multiplicity
+	 * @see ac.soton.eventb.records.Multiplicity
 	 * @generated
 	 */
 	EEnum getMultiplicity();
@@ -441,7 +441,7 @@ public interface StructuresPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	StructuresFactory getStructuresFactory();
+	RecordsFactory getRecordsFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -457,14 +457,14 @@ public interface StructuresPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link ac.soton.eventb.structures.impl.StructureImpl <em>Structure</em>}' class.
+		 * The meta object literal for the '{@link ac.soton.eventb.records.impl.RecordImpl <em>Record</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ac.soton.eventb.structures.impl.StructureImpl
-		 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getStructure()
+		 * @see ac.soton.eventb.records.impl.RecordImpl
+		 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getRecord()
 		 * @generated
 		 */
-		EClass STRUCTURE = eINSTANCE.getStructure();
+		EClass RECORD = eINSTANCE.getRecord();
 
 		/**
 		 * The meta object literal for the '<em><b>Subsets</b></em>' reference feature.
@@ -472,7 +472,7 @@ public interface StructuresPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURE__SUBSETS = eINSTANCE.getStructure_Subsets();
+		EReference RECORD__SUBSETS = eINSTANCE.getRecord_Subsets();
 
 		/**
 		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
@@ -480,14 +480,14 @@ public interface StructuresPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRUCTURE__FIELDS = eINSTANCE.getStructure_Fields();
+		EReference RECORD__FIELDS = eINSTANCE.getRecord_Fields();
 
 		/**
-		 * The meta object literal for the '{@link ac.soton.eventb.structures.impl.FieldImpl <em>Field</em>}' class.
+		 * The meta object literal for the '{@link ac.soton.eventb.records.impl.FieldImpl <em>Field</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ac.soton.eventb.structures.impl.FieldImpl
-		 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getField()
+		 * @see ac.soton.eventb.records.impl.FieldImpl
+		 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getField()
 		 * @generated
 		 */
 		EClass FIELD = eINSTANCE.getField();
@@ -509,15 +509,15 @@ public interface StructuresPackage extends EPackage {
 		EAttribute FIELD__MULTIPLICITY = eINSTANCE.getField_Multiplicity();
 
 		/**
-		 * The meta object literal for the '{@link ac.soton.eventb.structures.Multiplicity <em>Multiplicity</em>}' enum.
+		 * The meta object literal for the '{@link ac.soton.eventb.records.Multiplicity <em>Multiplicity</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see ac.soton.eventb.structures.Multiplicity
-		 * @see ac.soton.eventb.structures.impl.StructuresPackageImpl#getMultiplicity()
+		 * @see ac.soton.eventb.records.Multiplicity
+		 * @see ac.soton.eventb.records.impl.RecordsPackageImpl#getMultiplicity()
 		 * @generated
 		 */
 		EEnum MULTIPLICITY = eINSTANCE.getMultiplicity();
 
 	}
 
-} //StructuresPackage
+} //RecordsPackage

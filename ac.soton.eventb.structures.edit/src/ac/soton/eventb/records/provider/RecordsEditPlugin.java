@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.provider;
+package ac.soton.eventb.records.provider;
 
 import ac.soton.eventb.emf.core.extension.coreextension.provider.EventbcoreextensionEditPlugin;
 
@@ -17,19 +17,19 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eventb.emf.core.provider.EventbcoreEditPlugin;
 
 /**
- * This is the central singleton for the Structures edit plugin.
+ * This is the central singleton for the Records edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class StructuresEditPlugin extends EMFPlugin {
+public final class RecordsEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final StructuresEditPlugin INSTANCE = new StructuresEditPlugin();
+	public static final RecordsEditPlugin INSTANCE = new RecordsEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -45,7 +45,7 @@ public final class StructuresEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresEditPlugin() {
+	public RecordsEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     EcoreEditPlugin.INSTANCE,

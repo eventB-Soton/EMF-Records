@@ -4,14 +4,14 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.provider;
+package ac.soton.eventb.records.provider;
 
 
 import ac.soton.eventb.emf.core.extension.coreextension.provider.EventBNamedCommentedDataElaborationElementItemProvider;
 
-import ac.soton.eventb.structures.Structure;
-import ac.soton.eventb.structures.StructuresFactory;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.Record;
+import ac.soton.eventb.records.RecordsFactory;
+import ac.soton.eventb.records.RecordsPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -35,12 +35,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eventb.emf.core.CorePackage;
 
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.structures.Structure} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.records.Record} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructureItemProvider
+public class RecordItemProvider
 	extends EventBNamedCommentedDataElaborationElementItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -54,7 +54,7 @@ public class StructureItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructureItemProvider(AdapterFactory adapterFactory) {
+	public RecordItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -108,9 +108,9 @@ public class StructureItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Structure_subsets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Structure_subsets_feature", "_UI_Structure_type"),
-				 StructuresPackage.Literals.STRUCTURE__SUBSETS,
+				 getString("_UI_Record_subsets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_subsets_feature", "_UI_Record_type"),
+				 RecordsPackage.Literals.RECORD__SUBSETS,
 				 true,
 				 false,
 				 true,
@@ -131,7 +131,7 @@ public class StructureItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(StructuresPackage.Literals.STRUCTURE__FIELDS);
+			childrenFeatures.add(RecordsPackage.Literals.RECORD__FIELDS);
 		}
 		return childrenFeatures;
 	}
@@ -150,14 +150,14 @@ public class StructureItemProvider
 	}
 
 	/**
-	 * This returns Structure.gif.
+	 * This returns Record.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Structure"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Record"));
 	}
 
 	/**
@@ -168,10 +168,10 @@ public class StructureItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Structure)object).getName();
+		String label = ((Record)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Structure_type") :
-			getString("_UI_Structure_type") + " " + label;
+			getString("_UI_Record_type") :
+			getString("_UI_Record_type") + " " + label;
 	}
 
 	/**
@@ -185,11 +185,11 @@ public class StructureItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Structure.class)) {
-			case StructuresPackage.STRUCTURE__EXTENSION_ID:
+		switch (notification.getFeatureID(Record.class)) {
+			case RecordsPackage.RECORD__EXTENSION_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case StructuresPackage.STRUCTURE__FIELDS:
+			case RecordsPackage.RECORD__FIELDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -209,18 +209,18 @@ public class StructureItemProvider
 		
 			
 		if (object instanceof EObject && 
-			StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
-			StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
+			RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses") == null  || 
+			RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses").getReferences().contains(((EObject)object).eClass()))
 		
 			newChildDescriptors.add
 				(createChildParameter
 					(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-				 	StructuresFactory.eINSTANCE.createStructure()));
+				 	RecordsFactory.eINSTANCE.createRecord()));
 		
 			newChildDescriptors.add
 				(createChildParameter
-					(StructuresPackage.Literals.STRUCTURE__FIELDS,
-				 	StructuresFactory.eINSTANCE.createField()));
+					(RecordsPackage.Literals.RECORD__FIELDS,
+				 	RecordsFactory.eINSTANCE.createField()));
 	}
 
 }

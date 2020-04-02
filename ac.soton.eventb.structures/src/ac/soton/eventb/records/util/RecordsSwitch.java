@@ -4,12 +4,12 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.util;
+package ac.soton.eventb.records.util;
 
 import ac.soton.eventb.emf.core.extension.coreextension.EventBDataElaboration;
 import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
 
-import ac.soton.eventb.structures.*;
+import ac.soton.eventb.records.*;
 
 import java.util.List;
 
@@ -34,17 +34,17 @@ import org.eventb.emf.core.EventBObject;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see ac.soton.eventb.structures.StructuresPackage
+ * @see ac.soton.eventb.records.RecordsPackage
  * @generated
  */
-public class StructuresSwitch<T> {
+public class RecordsSwitch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static StructuresPackage modelPackage;
+	protected static RecordsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -52,9 +52,9 @@ public class StructuresSwitch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresSwitch() {
+	public RecordsSwitch() {
 		if (modelPackage == null) {
-			modelPackage = StructuresPackage.eINSTANCE;
+			modelPackage = RecordsPackage.eINSTANCE;
 		}
 	}
 
@@ -98,22 +98,22 @@ public class StructuresSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case StructuresPackage.STRUCTURE: {
-				Structure structure = (Structure)theEObject;
-				T result = caseStructure(structure);
-				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(structure);
-				if (result == null) result = caseAbstractExtension(structure);
-				if (result == null) result = caseEventBNamedCommentedElement(structure);
-				if (result == null) result = caseEventBDataElaboration(structure);
-				if (result == null) result = caseEventBCommentedElement(structure);
-				if (result == null) result = caseEventBNamed(structure);
-				if (result == null) result = caseEventBElement(structure);
-				if (result == null) result = caseEventBCommented(structure);
-				if (result == null) result = caseEventBObject(structure);
+			case RecordsPackage.RECORD: {
+				Record record = (Record)theEObject;
+				T result = caseRecord(record);
+				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(record);
+				if (result == null) result = caseAbstractExtension(record);
+				if (result == null) result = caseEventBNamedCommentedElement(record);
+				if (result == null) result = caseEventBDataElaboration(record);
+				if (result == null) result = caseEventBCommentedElement(record);
+				if (result == null) result = caseEventBNamed(record);
+				if (result == null) result = caseEventBElement(record);
+				if (result == null) result = caseEventBCommented(record);
+				if (result == null) result = caseEventBObject(record);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StructuresPackage.FIELD: {
+			case RecordsPackage.FIELD: {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
 				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(field);
@@ -132,17 +132,17 @@ public class StructuresSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Structure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Record</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Structure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Record</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStructure(Structure object) {
+	public T caseRecord(Record object) {
 		return null;
 	}
 
@@ -311,4 +311,4 @@ public class StructuresSwitch<T> {
 		return null;
 	}
 
-} //StructuresSwitch
+} //RecordsSwitch

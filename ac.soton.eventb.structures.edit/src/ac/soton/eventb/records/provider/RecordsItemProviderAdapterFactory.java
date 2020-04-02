@@ -4,12 +4,12 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.provider;
+package ac.soton.eventb.records.provider;
 
-import ac.soton.eventb.structures.StructuresFactory;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.RecordsFactory;
+import ac.soton.eventb.records.RecordsPackage;
 
-import ac.soton.eventb.structures.util.StructuresAdapterFactory;
+import ac.soton.eventb.records.util.RecordsAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,7 +57,7 @@ import org.eventb.emf.core.util.CoreSwitch;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructuresItemProviderAdapterFactory extends StructuresAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+public class RecordsItemProviderAdapterFactory extends RecordsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(StructuresEditPlugin.INSTANCE, StructuresPackage.eNS_URI);
+	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(RecordsEditPlugin.INSTANCE, RecordsPackage.eNS_URI);
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -96,7 +96,7 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresItemProviderAdapterFactory() {
+	public RecordsItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -105,30 +105,30 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.structures.Structure} instances.
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.records.Record} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StructureItemProvider structureItemProvider;
+	protected RecordItemProvider recordItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ac.soton.eventb.structures.Structure}.
+	 * This creates an adapter for a {@link ac.soton.eventb.records.Record}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStructureAdapter() {
-		if (structureItemProvider == null) {
-			structureItemProvider = new StructureItemProvider(this);
+	public Adapter createRecordAdapter() {
+		if (recordItemProvider == null) {
+			recordItemProvider = new RecordItemProvider(this);
 		}
 
-		return structureItemProvider;
+		return recordItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.structures.Field} instances.
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.records.Field} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -136,7 +136,7 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 	protected FieldItemProvider fieldItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ac.soton.eventb.structures.Field}.
+	 * This creates an adapter for a {@link ac.soton.eventb.records.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -276,7 +276,7 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (structureItemProvider != null) structureItemProvider.dispose();
+		if (recordItemProvider != null) recordItemProvider.dispose();
 		if (fieldItemProvider != null) fieldItemProvider.dispose();
 	}
 
@@ -330,12 +330,12 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 			
 			EAnnotation annotation = null;
 				
-				annotation = StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				annotation = RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
 				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
 					newChildDescriptors.add
 						(createChildParameter
 							(CorePackage.Literals.EVENT_BELEMENT__EXTENSIONS,
-							 StructuresFactory.eINSTANCE.createStructure()));
+							 RecordsFactory.eINSTANCE.createRecord()));
 
 				return null;
 			}
@@ -350,20 +350,20 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 			
 			EAnnotation annotation = null;
 				
-				annotation = StructuresPackage.Literals.STRUCTURE.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				annotation = RecordsPackage.Literals.RECORD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
 				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
 					newChildDescriptors.add
 						(createChildParameter
 							(CorePackage.Literals.ANNOTATION__CONTENTS,
-							 StructuresFactory.eINSTANCE.createStructure()));
+							 RecordsFactory.eINSTANCE.createRecord()));
 
 				
-				annotation = StructuresPackage.Literals.FIELD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				annotation = RecordsPackage.Literals.FIELD.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
 				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
 					newChildDescriptors.add
 						(createChildParameter
 							(CorePackage.Literals.ANNOTATION__CONTENTS,
-							 StructuresFactory.eINSTANCE.createField()));
+							 RecordsFactory.eINSTANCE.createField()));
 
 				return null;
 			}
@@ -396,7 +396,7 @@ public class StructuresItemProviderAdapterFactory extends StructuresAdapterFacto
 		 * @generated
 		 */
 		public ResourceLocator getResourceLocator() {
-			return StructuresEditPlugin.INSTANCE;
+			return RecordsEditPlugin.INSTANCE;
 		}
 	}
 

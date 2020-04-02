@@ -4,15 +4,15 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures.impl;
+package ac.soton.eventb.records.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 
-import ac.soton.eventb.structures.Field;
-import ac.soton.eventb.structures.Multiplicity;
-import ac.soton.eventb.structures.Structure;
-import ac.soton.eventb.structures.StructuresFactory;
-import ac.soton.eventb.structures.StructuresPackage;
+import ac.soton.eventb.records.Field;
+import ac.soton.eventb.records.Multiplicity;
+import ac.soton.eventb.records.Record;
+import ac.soton.eventb.records.RecordsFactory;
+import ac.soton.eventb.records.RecordsPackage;
 
 import org.eclipse.emf.common.util.URI;
 
@@ -37,13 +37,13 @@ import org.eventb.emf.core.machine.MachinePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructuresPackageImpl extends EPackageImpl implements StructuresPackage {
+public class RecordsPackageImpl extends EPackageImpl implements RecordsPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass structureEClass = null;
+	private EClass recordEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,12 +70,12 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see ac.soton.eventb.structures.StructuresPackage#eNS_URI
+	 * @see ac.soton.eventb.records.RecordsPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private StructuresPackageImpl() {
-		super(eNS_URI, StructuresFactory.eINSTANCE);
+	private RecordsPackageImpl() {
+		super(eNS_URI, RecordsFactory.eINSTANCE);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link StructuresPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link RecordsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,11 +97,11 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static StructuresPackage init() {
-		if (isInited) return (StructuresPackage)EPackage.Registry.INSTANCE.getEPackage(StructuresPackage.eNS_URI);
+	public static RecordsPackage init() {
+		if (isInited) return (RecordsPackage)EPackage.Registry.INSTANCE.getEPackage(RecordsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StructuresPackageImpl theStructuresPackage = (StructuresPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StructuresPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StructuresPackageImpl());
+		RecordsPackageImpl theRecordsPackage = (RecordsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RecordsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new RecordsPackageImpl());
 
 		isInited = true;
 
@@ -111,18 +111,18 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 		CoreextensionPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theStructuresPackage.createPackageContents();
+		theRecordsPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theStructuresPackage.initializePackageContents();
+		theRecordsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theStructuresPackage.freeze();
+		theRecordsPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(StructuresPackage.eNS_URI, theStructuresPackage);
-		return theStructuresPackage;
+		EPackage.Registry.INSTANCE.put(RecordsPackage.eNS_URI, theRecordsPackage);
+		return theRecordsPackage;
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStructure() {
-		return structureEClass;
+	public EClass getRecord() {
+		return recordEClass;
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStructure_Subsets() {
-		return (EReference)structureEClass.getEStructuralFeatures().get(0);
+	public EReference getRecord_Subsets() {
+		return (EReference)recordEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -148,8 +148,8 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStructure_Fields() {
-		return (EReference)structureEClass.getEStructuralFeatures().get(1);
+	public EReference getRecord_Fields() {
+		return (EReference)recordEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -193,8 +193,8 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StructuresFactory getStructuresFactory() {
-		return (StructuresFactory)getEFactoryInstance();
+	public RecordsFactory getRecordsFactory() {
+		return (RecordsFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -216,9 +216,9 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 		isCreated = true;
 
 		// Create classes and their features
-		structureEClass = createEClass(STRUCTURE);
-		createEReference(structureEClass, STRUCTURE__SUBSETS);
-		createEReference(structureEClass, STRUCTURE__FIELDS);
+		recordEClass = createEClass(RECORD);
+		createEReference(recordEClass, RECORD__SUBSETS);
+		createEReference(recordEClass, RECORD__FIELDS);
 
 		fieldEClass = createEClass(FIELD);
 		createEAttribute(fieldEClass, FIELD__TYPE);
@@ -260,14 +260,14 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		structureEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
-		structureEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
+		recordEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		recordEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
 		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(structureEClass, Structure.class, "Structure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStructure_Subsets(), this.getStructure(), null, "subsets", null, 0, 1, Structure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStructure_Fields(), this.getField(), null, "fields", null, 0, -1, Structure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(recordEClass, Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecord_Subsets(), this.getRecord(), null, "subsets", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Fields(), this.getField(), null, "fields", null, 0, -1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getField_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -296,7 +296,7 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 	protected void createOrgAnnotations() {
 		String source = "org.eventb.emf.core.extendedMetaClasses";		
 		addAnnotation
-		  (structureEClass, 
+		  (recordEClass, 
 		   source, 
 		   new String[] {
 		   },
@@ -306,4 +306,4 @@ public class StructuresPackageImpl extends EPackageImpl implements StructuresPac
 		   });
 	}
 
-} //StructuresPackageImpl
+} //RecordsPackageImpl

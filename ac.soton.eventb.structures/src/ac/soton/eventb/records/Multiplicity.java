@@ -4,7 +4,7 @@
  *
  * $Id$
  */
-package ac.soton.eventb.structures;
+package ac.soton.eventb.records;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Multiplicity</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see ac.soton.eventb.structures.StructuresPackage#getMultiplicity()
+ * @see ac.soton.eventb.records.RecordsPackage#getMultiplicity()
  * @model
  * @generated
  */

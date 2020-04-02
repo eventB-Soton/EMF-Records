@@ -1,16 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: ac.soton.eventb.structures;singleton:=true
+Bundle-SymbolicName: ac.soton.eventb.records;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
+Bundle-Vendor: University of Southampton
 Bundle-Localization: plugin
-Export-Package: ac.soton.eventb.structures,
- ac.soton.eventb.structures.impl,
- ac.soton.eventb.structures.util
+Export-Package: ac.soton.eventb.records,
+ ac.soton.eventb.records.impl,
+ ac.soton.eventb.records.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eventb.emf.core;visibility:=reexport,
- ac.soton.eventb.emf.core.extension;visibility:=reexport
+ ac.soton.eventb.emf.core.extension;bundle-version="[5.0.0,6.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: ac.soton.eventb.records
