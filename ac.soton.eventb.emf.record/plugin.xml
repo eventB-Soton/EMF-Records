@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://soton.ac.uk/models/eventb/record/2019"
+            class="ac.soton.eventb.emf.record.RecordPackage"
+            genModel="model/record.genmodel"/>
+   </extension>
+
+</plugin>
