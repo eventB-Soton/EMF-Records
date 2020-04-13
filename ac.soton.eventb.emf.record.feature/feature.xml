@@ -2,9 +2,9 @@
 <feature
       id="ac.soton.eventb.records.feature"
       label="%featureName"
-      version="0.0.1.qualifier"
+      version="0.1.0.qualifier"
       provider-name="%featureVendor"
-      license-feature="org.rodinp.license"
+      license-feature="org.rodinp.licence"
       license-feature-version="1.0.0.release">
 
    <description>
@@ -40,28 +40,28 @@
       <import plugin="ch.ethz.eventb.utils" version="0.2.3" match="compatible"/>
       <import plugin="org.eventb.core.ast" version="3.2.0" match="compatible"/>
       <import plugin="org.rodinp.core" version="1.7.0" match="compatible"/>
-      <import plugin="ac.soton.eventb.records" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="ac.soton.eventb.emf.record" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction" version="1.8.0" match="compatible"/>
       <import plugin="ac.soton.emf.translator.eventb" version="0.0.1" match="compatible"/>
       <import plugin="ac.soton.eventb.emf.core.extension" version="5.0.0" match="compatible"/>
    </requires>
 
    <plugin
-         id="ac.soton.eventb.records"
+         id="ac.soton.eventb.emf.record"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ac.soton.eventb.records.edit"
+         id="ac.soton.eventb.emf.record.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="ac.soton.eventb.records.generator"
+         id="ac.soton.eventb.emf.record.generator"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -1,0 +1,33 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <!-- REQUIRED: Group ID is the feature ID -->
+  <groupId>ac.soton.eventb.emf.record</groupId>
+  <!-- ID of this artifact -->
+  <artifactId>root</artifactId>
+  <!-- REQUIRED: Name and description of this this root build -->
+  <name>EMF Record</name>
+  <description>EMF Record Root Build</description>
+  <!-- REQUIRED: Version number (using semantic versioning) -->
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <parent>
+    <!-- REQUIRED: Group ID is the feature ID -->
+    <groupId>ac.soton.eventb.emf.record</groupId>
+    <!-- Name of the release engineering artifact -->
+    <artifactId>releng</artifactId>
+    <!-- REQUIRED: Version number of the release engineering artifact -->
+    <version>0.1.0-SNAPSHOT</version>
+    <!-- REQUIRED: Relative path to the release engineering artifact -->
+    <relativePath>./ac.soton.eventb.emf.record.releng</relativePath>
+  </parent>
+
+  <modules>
+    <!-- LATER: List of modules in this build -->
+    <module>ac.soton.eventb.emf.record</module>
+    <module>ac.soton.eventb.emf.record.edit</module>
+    <module>ac.soton.eventb.emf.record.generator</module>
+    <!-- <module>ac.soton.eventb.emf.record.tests</module> -->
+    <module>ac.soton.eventb.emf.record.feature</module>
+    <module>org.rodinp.licence</module>
+  </modules>
+</project>
