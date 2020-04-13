@@ -9,9 +9,8 @@ Bundle-Localization: plugin
 Export-Package: ac.soton.eventb.emf.record,
  ac.soton.eventb.emf.record.impl,
  ac.soton.eventb.emf.record.util
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eventb.emf.core;visibility:=reexport,
+Require-Bundle: org.eclipse.emf.ecore;bundle-version="[2.21.0,3.0.0)";visibility:=reexport,
+ org.eventb.emf.core;bundle-version="[5.0.0,6.0.0)";visibility:=reexport,
  ac.soton.eventb.emf.core.extension;bundle-version="[5.0.0,6.0.0)";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
