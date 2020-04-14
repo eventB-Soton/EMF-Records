@@ -28,6 +28,5 @@
     <module>ac.soton.eventb.emf.record.generator</module>
     <!-- <module>ac.soton.eventb.emf.record.tests</module> -->
     <module>ac.soton.eventb.emf.record.feature</module>
-    <module>org.rodinp.licence</module>
   </modules>
 </project>
