@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+         point="org.eclipse.ui.commands">
+      <category
+        description="Commands associated with Records"
+        id="ac.soton.eventb.records.commands"
+        name="Record Commands">
+      </category>
+      <command
+            categoryId="ac.soton.eventb.records.commands"
+            defaultHandler="ac.soton.emf.translator.eventb.handler.EventBTranslateHandler"
+            description="records"        
+             id="ac.soton.eventb.records.commands.record"
+            name="Records">
+      </command>
+   </extension>
+   <extension
+         point="ac.soton.emf.translators">
+      <translator
+            adapter_class="ac.soton.emf.translator.eventb.adapter.EventBTranslatorAdapter"
+            command_id="ac.soton.eventb.records.commands.record"
+            name="Records Machine"
+            root_source_class="Machine"
+            source_package="http://emf.eventb.org/models/core/machine/2014"
+            translator_id="ac.soton.eventb.records.translator.machine">
+      </translator>
+      <translator
+            adapter_class="ac.soton.emf.translator.eventb.adapter.EventBTranslatorAdapter"
+            command_id="ac.soton.eventb.records.commands.record"
+            name="Records Context"
+            root_source_class="Context"
+            source_package="http://emf.eventb.org/models/core/context/2014"
+            translator_id="ac.soton.eventb.records.translator.context">
+      </translator>
+   </extension>
+   <extension
+         point="ac.soton.emf.translator.rulesets">
+      <ruleset
+            name="RecordsRulesMachine"
+            translator_id="ac.soton.eventb.records.translator.machine">
+         <rule
+               name="RecordRule"
+               rule_class="ac.soton.eventb.records.generator.rules.RecordRuleMachine"
+               source_class="Record"
+               source_package="http://soton.ac.uk/models/eventb/record/2019">
+         </rule>
+      </ruleset>
+      <ruleset
+            name="RecordsRulesContext"
+            translator_id="ac.soton.eventb.records.translator.context">
+         <rule
+               name="RecordRule"
+               rule_class="ac.soton.eventb.records.generator.rules.RecordRuleContext"
+               source_class="Record"
+               source_package="http://soton.ac.uk/models/eventb/record/2019">
+         </rule>
+      </ruleset>
+   </extension>
+
+</plugin>
