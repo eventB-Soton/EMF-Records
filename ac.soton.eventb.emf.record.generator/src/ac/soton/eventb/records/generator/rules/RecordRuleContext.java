@@ -67,7 +67,7 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> translatedElements) throws Exception {
 		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		ArrayList <Constant> cnstList = new ArrayList<Constant>();
-		ArrayList <Axiom> axmList = new ArrayList<Axiom>();
+		//ArrayList <Axiom> axmList = new ArrayList<Axiom>();
 	    Context sourceContext = (Context)sourceElement.eContainer(); 
 		
 	    Record r = (Record) sourceElement;
@@ -107,7 +107,8 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	    	recordAxmPred = r.getName() + " \u2286 " + r.getSubsets().getName();
 	    	String recordAxmCmt = "record translation axoim";
 	    	Axiom recordAxm = Make.axiom(recordAxmName, false, recordAxmPred, recordAxmCmt);
-	    	axmList.add(recordAxm);
+	    	//axmList.add(recordAxm);
+	    	ret.add(Make.descriptor(sourceContext, axioms, recordAxm, 0));
 	    		}
 	    }
 	    
@@ -128,7 +129,7 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	 	    String axmPred = f.getName() + " \u2208 " + recordName + type + f.getType();
 	 	    String axmCmt = "record field translation axiom";
 	 	    Axiom axm = Make.axiom(axmName, false,axmPred, axmCmt);
-	 	    axmList.add(axm); 
+	 	    //axmList.add(axm); 
 	 	    ret.add(Make.descriptor(sourceContext, axioms, axm, 0));
 	    }
 	    //sourceContext.getAxioms().addAll(axmList);
