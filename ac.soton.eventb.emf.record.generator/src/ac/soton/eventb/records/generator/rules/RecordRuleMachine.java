@@ -135,8 +135,7 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	 	    Invariant inv = Make.invariant(invName, false, invPred, invCmt);
 	 	    invList.add(inv);
 	    }
-		EList<Invariant> invariants = sourceMachine.getInvariants();
-		invariants.addAll(0, invList);
+		sourceMachine.getInvariants().addAll(invList);
 		
 	 // No need to find the project, using null will add it to the current project
 	    ret.add(Make.descriptor(null, components, sourceMachine, 1));
