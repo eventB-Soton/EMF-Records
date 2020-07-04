@@ -23,6 +23,10 @@
          id="ac.soton.eventb.emf.record.feature"
          version="0.0.0"/>
 
+   <includes
+         id="ac.soton.eventb.emf.record.tests.feature"
+         version="0.0.0"/>
+
    <plugin
          id="ac.soton.eventb.emf.record.source"
          download-size="0"
