@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="ac.soton.eventb.emf.record.tests.feature"
+      label="%featureName"
+      version="0.1.0.release"
+      provider-name="%featureVendor"
+      license-feature="org.rodinp.licence"
+      license-feature-version="1.0.0.release">
+
+   <description>
+      %featureDescription
+   </description>
+
+   <copyright>
+      %featureCopyright
+   </copyright>
+
+   <url>
+      <update label="%updateSiteName" url="https://eventB-soton.github.io/updateSite"/>
+   </url>
+
+</feature>

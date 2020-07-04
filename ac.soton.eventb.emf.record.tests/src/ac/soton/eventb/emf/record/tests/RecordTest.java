@@ -10,6 +10,8 @@
  */
 package ac.soton.eventb.emf.record.tests;
 
+import org.junit.Test;
+
 import ac.soton.eventb.emf.record.Record;
 import ac.soton.eventb.emf.record.RecordFactory;
 
@@ -94,4 +96,8 @@ public class RecordTest extends TestCase {
 		setFixture(null);
 	}
 
+	@Test
+	public void testRecord() {
+		// Ignore at the moment
+	}
 } //RecordTest

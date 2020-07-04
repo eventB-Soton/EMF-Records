@@ -10,6 +10,8 @@
  */
 package ac.soton.eventb.emf.record.tests;
 
+import org.junit.Test;
+
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.RecordFactory;
 
@@ -92,6 +94,11 @@ public class FieldTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	@Test
+	public void testField() {
+		// Ignore at the moment
 	}
 
 } //FieldTest

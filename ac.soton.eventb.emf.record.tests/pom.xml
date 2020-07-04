@@ -7,7 +7,7 @@
     <!-- Name of the release engineering artifact -->
     <artifactId>releng</artifactId>
     <!-- REQUIRED: Version number of the release engineering artifact -->
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0.release</version>
     <!-- REQUIRED: Relative path to the release engineering artifact -->
     <relativePath>../ac.soton.eventb.emf.record.releng</relativePath>
   </parent>
@@ -17,7 +17,7 @@
   <!-- REQUIRED: Artifact ID of the test plug-in. Must be the same as the project ID -->
   <artifactId>ac.soton.eventb.emf.record.tests</artifactId>
   <!-- REQUIRED: Artifact ID of the test plug-in. Must be the same as the project ID -->
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0.release</version>
   <!-- REQUIRED: Name and description of this this root build -->
   <name>EMF Record Test plugins</name>
   <description>Unit tests for EMF Record</description>
