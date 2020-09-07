@@ -1,3 +1,16 @@
+<!--
+    Copyright (c) 2020 University of Southampton.
+   
+    This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License 2.0
+    which accompanies this distribution, and is available at
+    https://www.eclipse.org/legal/epl-2.0/
+   
+    SPDX-License-Identifier: EPL-2.0
+   
+    Contributors:
+        University of Southampton - initial API and implementation
+ -->
 <project>
   <modelVersion>4.0.0</modelVersion>
 
@@ -7,7 +20,7 @@
     <!-- Name of the release engineering artifact -->
     <artifactId>releng</artifactId>
     <!-- REQUIRED: Version number of the release engineering artifact -->
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <!-- REQUIRED: Relative path to the release engineering artifact -->
     <relativePath>../ac.soton.eventb.emf.record.releng</relativePath>
   </parent>
@@ -17,10 +30,10 @@
   <!-- REQUIRED: Artifact ID of the test plug-in. Must be the same as the project ID -->
   <artifactId>ac.soton.eventb.emf.record</artifactId>
   <!-- REQUIRED: Artifact ID of the test plug-in. Must be the same as the project ID -->
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
   <!-- REQUIRED: Name and description of this this root build -->
-  <name>EMF Record plug-in</name>
-  <description>EMF Record</description>
+  <name>Event-B EMF Record Plug-in</name>
+  <description>Event-B EMF Record</description>
 
   <packaging>eclipse-plugin</packaging>
 
