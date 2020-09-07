@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: ac.soton.eventb.emf.record.tests;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.1.1.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Vendor: %Bundle-Vendor
 Export-Package: ac.soton.eventb.emf.record.tests
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.13.0,4.0.0)",
  ac.soton.eventb.emf.record;bundle-version="[0.1.0,1.0.0)",
