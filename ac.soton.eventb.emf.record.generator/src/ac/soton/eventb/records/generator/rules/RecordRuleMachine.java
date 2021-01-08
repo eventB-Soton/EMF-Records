@@ -76,7 +76,7 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    String recordName = r.getName();
 	    
 	    //var for record
-	    if (r.getSubsets()!=null & r.getSubsets().getName()!=r.getName()) {
+	    if (r.getSubsets()!=null && r.getSubsets().getName()!=r.getName()) {
 	    	String recordVarCmt = "record translation variable";
 	    	Variable recordVar = Make.variable(recordName, recordVarCmt);
 	    	varList.add(recordVar);
