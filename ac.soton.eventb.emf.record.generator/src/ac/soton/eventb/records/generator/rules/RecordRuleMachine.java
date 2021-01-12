@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2021 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -40,7 +40,7 @@ import ac.soton.eventb.emf.record.Record;
  * </p>
  * 
  * @author asiehsalehi
- * @version 1.0
+ * @version 0.1.1
  * @see TranslationDescriptor
  * @since 0.1.0
  */
