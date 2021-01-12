@@ -40,7 +40,7 @@ import ac.soton.eventb.emf.record.Record;
  * </p>
  * 
  * @author asiehsalehi
- * @version 0.1
+ * @version 1.0
  * @see TranslationDescriptor
  * @since 0.1.0
  */
@@ -142,10 +142,6 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    }
 		sourceMachine.getInvariants().addAll(invList);
 		
-	 // No need to find the project, using null will add it to the current project
-	    ret.add(Make.descriptor(null, components, sourceMachine, 1));
-	    ret.add(Make.descriptor(null, components, sourceMachine.getSees().get(0), 1));
-	
 		return ret;	
 	}
 
