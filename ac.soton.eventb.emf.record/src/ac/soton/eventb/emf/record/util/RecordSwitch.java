@@ -19,6 +19,7 @@ import ac.soton.eventb.emf.core.extension.coreextension.EventBDataElaboration;
 import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
 
 import ac.soton.eventb.emf.record.*;
+import ac.soton.eventb.emf.record.Record;
 
 import java.util.List;
 
