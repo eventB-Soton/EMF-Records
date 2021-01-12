@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2021 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -35,14 +35,13 @@ import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Record;
 
-
 /**
  * <p>
  * Implementation of {@link AbstractRule} for translating record into invariant
  * </p>
  * 
  * @author asiehsalehi
- * @version 0.1
+ * @version 0.1.1
  * @see TranslationDescriptor
  * @since 0.1.0
  */
@@ -137,15 +136,8 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	 	    //axmList.add(axm); 
 	 	    ret.add(Make.descriptor(sourceContext, axioms, axm, 0));
 	    }
-	    //sourceContext.getAxioms().addAll(axmList);
-	    
-		// No need to find the project, using null will add it to the current project
-	    //ret.add(Make.descriptor(null, components, sourceContext, 1));
 	
 		return ret;	
 	}
-
-	
-	
 
 }
