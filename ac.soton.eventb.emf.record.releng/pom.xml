@@ -31,17 +31,13 @@
     <eclipse_updates-repo.url>http://download.eclipse.org/eclipse/updates/4.16/</eclipse_updates-repo.url>
     <!-- URL for Eclipse Releases repository (2020-06) -->
     <eclipse_releases-repo.url>http://download.eclipse.org/releases/2020-06</eclipse_releases-repo.url>
-    <!-- URL for Rodin Platform -->
-    <rodin-repo.url>http://rodin-b-sharp.sourceforge.net/core-updates</rodin-repo.url>
+    <!-- URL for Rodin Platform (3.5) -->
+    <rodin-repo.url>http://rodin-b-sharp.sourceforge.net/core-updates/3.5</rodin-repo.url>
     <!-- OPTIONAL Additional URLs -->
-    <!-- <!-\- URL for the Rodin Update site -\-> -->
-    <!-- <rodin_update_site-repo.url>http://rodin-b-sharp.sourceforge.net/updates</rodin_update_site-repo.url> -->
     <!-- URL for the Soton Update site -->
     <soton-repo.url>http://eventb-soton.github.io/updateSite</soton-repo.url>
     <!-- URL for the Rodin Licence Update site -->
     <rodin_licence-repo.url>http://eventb-soton.github.io/media_bin/org.rodinp.licence.updateSite</rodin_licence-repo.url>
-    <!-- <!-\- URL for the XText Update site -\-> -->
-	<!-- <xtext-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtext-repo.url> -->
 	</properties>
 
   <repositories>
@@ -64,12 +60,6 @@
       <layout>p2</layout>
     </repository>
     <!-- OPTIONAL Additional repository -->
-    <!-- <!-\- Rodin Update Site repository -\-> -->
-    <!-- <repository> -->
-    <!--   <id>rodin-update-site</id> -->
-    <!--   <url>${rodin_update_site-repo.url}</url> -->
-    <!--   <layout>p2</layout> -->
-    <!-- </repository> -->
     <!-- Soton Prototype repository -->
     <repository>
       <id>soton</id>
@@ -82,12 +72,6 @@
       <url>${rodin_licence-repo.url}</url>
       <layout>p2</layout>
     </repository>
-    <!-- <!-\- XText repository -\-> -->
-    <!-- <repository> -->
-    <!--   <id>xtext</id> -->
-    <!--   <url>${xtext-repo.url}</url> -->
-    <!--   <layout>p2</layout> -->
-    <!-- </repository> -->
   </repositories>
 
   <build>
