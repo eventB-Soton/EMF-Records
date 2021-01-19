@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2021 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -40,7 +40,7 @@ import ac.soton.eventb.emf.record.Record;
  * </p>
  * 
  * @author asiehsalehi
- * @version 0.1
+ * @version 0.1.1
  * @see TranslationDescriptor
  * @since 0.1.0
  */
@@ -76,7 +76,7 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    String recordName = r.getName();
 	    
 	    //var for record
-	    if (r.getSubsets()!=null & r.getSubsets().getName()!=r.getName()) {
+	    if (r.getSubsets()!=null && r.getSubsets().getName()!=r.getName()) {
 	    	String recordVarCmt = "record translation variable";
 	    	Variable recordVar = Make.variable(recordName, recordVarCmt);
 	    	varList.add(recordVar);
@@ -142,10 +142,6 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	    }
 		sourceMachine.getInvariants().addAll(invList);
 		
-	 // No need to find the project, using null will add it to the current project
-	    ret.add(Make.descriptor(null, components, sourceMachine, 1));
-	    ret.add(Make.descriptor(null, components, sourceMachine.getSees().get(0), 1));
-	
 		return ret;	
 	}
 

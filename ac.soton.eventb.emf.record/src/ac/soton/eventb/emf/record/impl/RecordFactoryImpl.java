@@ -16,6 +16,7 @@
 package ac.soton.eventb.emf.record.impl;
 
 import ac.soton.eventb.emf.record.*;
+import ac.soton.eventb.emf.record.Record;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
