@@ -17,7 +17,7 @@
 <feature
       id="ac.soton.eventb.emf.record.feature"
       label="%featureName"
-      version="0.1.1.qualifier"
+      version="0.1.1.release"
       provider-name="%featureVendor"
       license-feature="org.rodinp.licence"
       license-feature-version="1.0.0.release">
@@ -31,7 +31,7 @@
    </copyright>
 
    <url>
-      <update label="%updateSiteName" url="https://eventB-soton.github.io/updateSite"/>
+      <update label="%updateSiteName" url="http://eventb-soton.github.io/updateSite/releases"/>
    </url>
 
    <requires>
