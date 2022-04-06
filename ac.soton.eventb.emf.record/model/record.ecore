@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="record" nsURI="http://soton.ac.uk/models/eventb/record/2019"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="record" nsURI="http://soton.ac.uk/models/eventb/record/2022"
     nsPrefix="record">
   <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBNamedCommentedDataElaborationElement ../../org.eventb.emf.core/model/eventbcore.ecore#//AbstractExtension">
     <eAnnotations source="org.eventb.emf.core.extendedMetaClasses" references="../../org.eventb.emf.core/model/eventbcore.ecore#//machine/Machine ../../org.eventb.emf.core/model/eventbcore.ecore#//context/Context"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subsets" eType="#//Record"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inherits" eType="#//Record"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field" containment="true"/>
+        eType="#//Field" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="ecore:EClass ../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedDerivedPredicateElement"
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//Record"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBNamedCommentedDataElaborationElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBNamedCommentedDataElaborationElement ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" eType="#//Multiplicity"
         defaultValueLiteral="ONE"/>
   </eClassifiers>
