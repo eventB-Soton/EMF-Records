@@ -9,9 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.impl;
 
