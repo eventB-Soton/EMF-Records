@@ -18,4 +18,4 @@ Require-Bundle: ac.soton.eventb.emf.record;bundle-version="[0.1.0,1.0.0)",
  ac.soton.eventb.emf.core.extension;bundle-version="[5.0.0,6.0.0)"
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: ac.soton.eventb.records.edit
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11

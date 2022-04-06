@@ -11,5 +11,5 @@ Require-Bundle: ac.soton.emf.translator;bundle-version="[3.0.0,4.0.0)",
  ac.soton.eventb.emf.core.extension;bundle-version="[5.0.0,6.0.0)"
 Bundle-Vendor: %Bundle-Vendor
 Automatic-Module-Name: ac.soton.eventb.records.generator
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
