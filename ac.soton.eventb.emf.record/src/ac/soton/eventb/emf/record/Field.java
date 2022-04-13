@@ -14,6 +14,7 @@
 package ac.soton.eventb.emf.record;
 
 import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
+import ac.soton.eventb.emf.core.extension.coreextension.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +24,6 @@ import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedData
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.record.Field#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Field#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  * </p>
@@ -32,33 +32,7 @@ import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedData
  * @model
  * @generated
  */
-public interface Field extends EventBNamedCommentedDataElaborationElement {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
-	 * @see ac.soton.eventb.emf.record.RecordPackage#getField_Type()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getType();
-
-	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Field#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(String value);
-
+public interface Field extends EventBNamedCommentedDataElaborationElement, Type {
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
 	 * The default value is <code>"ONE"</code>.

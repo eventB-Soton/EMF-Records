@@ -40,7 +40,7 @@ public class RecordFactoryImpl extends EFactoryImpl implements RecordFactory {
 	 */
 	public static RecordFactory init() {
 		try {
-			RecordFactory theRecordFactory = (RecordFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/record/2019"); 
+			RecordFactory theRecordFactory = (RecordFactory)EPackage.Registry.INSTANCE.getEFactory("http://soton.ac.uk/models/eventb/record/2022"); 
 			if (theRecordFactory != null) {
 				return theRecordFactory;
 			}
@@ -71,6 +71,7 @@ public class RecordFactoryImpl extends EFactoryImpl implements RecordFactory {
 		switch (eClass.getClassifierID()) {
 			case RecordPackage.RECORD: return createRecord();
 			case RecordPackage.FIELD: return createField();
+			case RecordPackage.CONSTRAINT: return createConstraint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +125,16 @@ public class RecordFactoryImpl extends EFactoryImpl implements RecordFactory {
 	public Field createField() {
 		FieldImpl field = new FieldImpl();
 		return field;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constraint createConstraint() {
+		ConstraintImpl constraint = new ConstraintImpl();
+		return constraint;
 	}
 
 	/**

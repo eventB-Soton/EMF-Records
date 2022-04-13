@@ -15,6 +15,7 @@ package ac.soton.eventb.emf.record.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.impl.EventBNamedCommentedDataElaborationElementImpl;
 
+import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Record;
 import ac.soton.eventb.emf.record.RecordPackage;
@@ -30,8 +31,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eventb.emf.core.AbstractExtension;
@@ -45,8 +44,11 @@ import org.eventb.emf.core.CorePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getExtensionId <em>Extension Id</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getSubsets <em>Subsets</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getInherits <em>Inherits</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#getRefines <em>Refines</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.impl.RecordImpl#isExtended <em>Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,24 +76,56 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 	protected String extensionId = EXTENSION_ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSubsets() <em>Subsets</em>}' reference.
+	 * The cached value of the '{@link #getInherits() <em>Inherits</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubsets()
+	 * @see #getInherits()
 	 * @generated
 	 * @ordered
 	 */
-	protected Record subsets;
+	/**
+	 * @since 1.0
+	 */
+	protected Record inherits;
 
 	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * The cached value of the '{@link #getRefines() <em>Refines</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFields()
+	 * @see #getRefines()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Field> fields;
+	/**
+	 * @since 1.0
+	 */
+	protected Record refines;
+
+	/**
+	 * The default value of the '{@link #isExtended() <em>Extended</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExtended()
+	 * @generated
+	 * @ordered
+	 */
+	/**
+	 * @since 1.0
+	 */
+	protected static final boolean EXTENDED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isExtended() <em>Extended</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isExtended()
+	 * @generated
+	 * @ordered
+	 */
+	/**
+	 * @since 1.0
+	 */
+	protected boolean extended = EXTENDED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,16 +172,16 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Record getSubsets() {
-		if (subsets != null && subsets.eIsProxy()) {
-			InternalEObject oldSubsets = (InternalEObject)subsets;
-			subsets = (Record)eResolveProxy(oldSubsets);
-			if (subsets != oldSubsets) {
+	public Record getInherits() {
+		if (inherits != null && inherits.eIsProxy()) {
+			InternalEObject oldInherits = (InternalEObject)inherits;
+			inherits = (Record)eResolveProxy(oldInherits);
+			if (inherits != oldInherits) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecordPackage.RECORD__SUBSETS, oldSubsets, subsets));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecordPackage.RECORD__INHERITS, oldInherits, inherits));
 			}
 		}
-		return subsets;
+		return inherits;
 	}
 
 	/**
@@ -155,8 +189,11 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Record basicGetSubsets() {
-		return subsets;
+	/**
+	 * @since 1.0
+	 */
+	public Record basicGetInherits() {
+		return inherits;
 	}
 
 	/**
@@ -164,23 +201,93 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSubsets(Record newSubsets) {
-		Record oldSubsets = subsets;
-		subsets = newSubsets;
+	public void setInherits(Record newInherits) {
+		Record oldInherits = inherits;
+		inherits = newInherits;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RecordPackage.RECORD__SUBSETS, oldSubsets, subsets));
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordPackage.RECORD__INHERITS, oldInherits, inherits));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Derives a notifying containment EList of Field from the orderedChildren of this element
+	 * The list can be modified and children will be updated to match.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public EList<Field> getFields() {
-		if (fields == null) {
-			fields = new EObjectContainmentEList<Field>(Field.class, this, RecordPackage.RECORD__FIELDS);
+		return getDerivedChildren(Field.class, RecordPackage.RECORD__FIELDS);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Derives a notifying containment EList of constraints from the orderedChildren of this element
+	 * The list can be modified and children will be updated to match.
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	public EList<Constraint> getConstraints() {
+		return getDerivedChildren(Constraint.class, RecordPackage.RECORD__CONSTRAINTS);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Record getRefines() {
+		if (refines != null && refines.eIsProxy()) {
+			InternalEObject oldRefines = (InternalEObject)refines;
+			refines = (Record)eResolveProxy(oldRefines);
+			if (refines != oldRefines) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RecordPackage.RECORD__REFINES, oldRefines, refines));
+			}
 		}
-		return fields;
+		return refines;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Record basicGetRefines() {
+		return refines;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRefines(Record newRefines) {
+		Record oldRefines = refines;
+		refines = newRefines;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordPackage.RECORD__REFINES, oldRefines, refines));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isExtended() {
+		return extended;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtended(boolean newExtended) {
+		boolean oldExtended = extended;
+		extended = newExtended;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RecordPackage.RECORD__EXTENDED, oldExtended, extended));
 	}
 
 	/**
@@ -193,6 +300,8 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 		switch (featureID) {
 			case RecordPackage.RECORD__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+			case RecordPackage.RECORD__CONSTRAINTS:
+				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -207,11 +316,18 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 		switch (featureID) {
 			case RecordPackage.RECORD__EXTENSION_ID:
 				return getExtensionId();
-			case RecordPackage.RECORD__SUBSETS:
-				if (resolve) return getSubsets();
-				return basicGetSubsets();
+			case RecordPackage.RECORD__INHERITS:
+				if (resolve) return getInherits();
+				return basicGetInherits();
 			case RecordPackage.RECORD__FIELDS:
 				return getFields();
+			case RecordPackage.RECORD__CONSTRAINTS:
+				return getConstraints();
+			case RecordPackage.RECORD__REFINES:
+				if (resolve) return getRefines();
+				return basicGetRefines();
+			case RecordPackage.RECORD__EXTENDED:
+				return isExtended();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,12 +344,22 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 			case RecordPackage.RECORD__EXTENSION_ID:
 				setExtensionId((String)newValue);
 				return;
-			case RecordPackage.RECORD__SUBSETS:
-				setSubsets((Record)newValue);
+			case RecordPackage.RECORD__INHERITS:
+				setInherits((Record)newValue);
 				return;
 			case RecordPackage.RECORD__FIELDS:
 				getFields().clear();
 				getFields().addAll((Collection<? extends Field>)newValue);
+				return;
+			case RecordPackage.RECORD__CONSTRAINTS:
+				getConstraints().clear();
+				getConstraints().addAll((Collection<? extends Constraint>)newValue);
+				return;
+			case RecordPackage.RECORD__REFINES:
+				setRefines((Record)newValue);
+				return;
+			case RecordPackage.RECORD__EXTENDED:
+				setExtended((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,11 +376,20 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 			case RecordPackage.RECORD__EXTENSION_ID:
 				setExtensionId(EXTENSION_ID_EDEFAULT);
 				return;
-			case RecordPackage.RECORD__SUBSETS:
-				setSubsets((Record)null);
+			case RecordPackage.RECORD__INHERITS:
+				setInherits((Record)null);
 				return;
 			case RecordPackage.RECORD__FIELDS:
 				getFields().clear();
+				return;
+			case RecordPackage.RECORD__CONSTRAINTS:
+				getConstraints().clear();
+				return;
+			case RecordPackage.RECORD__REFINES:
+				setRefines((Record)null);
+				return;
+			case RecordPackage.RECORD__EXTENDED:
+				setExtended(EXTENDED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -270,10 +405,16 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 		switch (featureID) {
 			case RecordPackage.RECORD__EXTENSION_ID:
 				return EXTENSION_ID_EDEFAULT == null ? extensionId != null : !EXTENSION_ID_EDEFAULT.equals(extensionId);
-			case RecordPackage.RECORD__SUBSETS:
-				return subsets != null;
+			case RecordPackage.RECORD__INHERITS:
+				return inherits != null;
 			case RecordPackage.RECORD__FIELDS:
-				return fields != null && !fields.isEmpty();
+				return !getFields().isEmpty();
+			case RecordPackage.RECORD__CONSTRAINTS:
+				return !getConstraints().isEmpty();
+			case RecordPackage.RECORD__REFINES:
+				return refines != null;
+			case RecordPackage.RECORD__EXTENDED:
+				return extended != EXTENDED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -322,8 +463,37 @@ public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl i
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (extensionId: ");
 		result.append(extensionId);
+		result.append(", extended: ");
+		result.append(extended);
 		result.append(')');
 		return result.toString();
 	}
 
+	
+	//CUSTOM
+	
+	/**
+	 * overidden to return the refined name if refines is set
+	 */
+	@Override
+	public String getName() {
+		Record refinedRecord = getRefines();
+		if (refinedRecord instanceof Record) {
+			return refinedRecord.getName();
+		}
+		else {
+			return super.getName();
+		}
+	}
+	
+	/**
+	 * For now this just returns a default "self" to be used when quantifying constraints 
+	 * over instances of the record. 
+	 * Added to API in case we decide to add an attribute to Record so that user can choose other options.
+	 */
+	@Override
+	public String getSelfName() {
+		return "self"; 					 
+		//return "this"+getName();		//.. would be an alternative option
+	}
 } //RecordImpl

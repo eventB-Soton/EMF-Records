@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eventb.emf.core.CorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,7 +52,7 @@ public interface RecordPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://soton.ac.uk/models/eventb/record/2019";
+	String eNS_URI = "http://soton.ac.uk/models/eventb/record/2022";
 
 	/**
 	 * The package namespace name.
@@ -82,6 +83,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -91,6 +93,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -100,6 +103,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -109,6 +113,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -118,6 +123,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -127,6 +133,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -136,6 +143,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -143,8 +151,19 @@ public interface RecordPackage extends EPackage {
 	int RECORD__INTERNAL_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Ordered Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__ORDERED_CHILDREN = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ORDERED_CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -154,6 +173,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -163,6 +183,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Elaborates</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -172,6 +193,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Data Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -181,6 +203,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extension Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -188,17 +211,19 @@ public interface RecordPackage extends EPackage {
 	int RECORD__EXTENSION_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Subsets</b></em>' reference.
+	 * The feature id for the '<em><b>Inherits</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD__SUBSETS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
+	int RECORD__INHERITS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -206,13 +231,44 @@ public interface RecordPackage extends EPackage {
 	int RECORD__FIELDS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Record</em>' class.
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
+	int RECORD__CONSTRAINTS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Refines</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__REFINES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Extended</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__EXTENDED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Record</em>' class.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.record.impl.FieldImpl <em>Field</em>}' class.
@@ -227,6 +283,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -236,6 +293,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -245,6 +303,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' map.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -254,6 +313,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -263,6 +323,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Generated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -272,6 +333,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -281,6 +343,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -288,8 +351,19 @@ public interface RecordPackage extends EPackage {
 	int FIELD__INTERNAL_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Ordered Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__ORDERED_CHILDREN = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT__ORDERED_CHILDREN;
+
+	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -299,6 +373,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -308,6 +383,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Elaborates</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -317,6 +393,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Data Kind</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -326,6 +403,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -335,6 +413,7 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -344,11 +423,153 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int FIELD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link ac.soton.eventb.emf.record.impl.ConstraintImpl <em>Constraint</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.record.impl.ConstraintImpl
+	 * @see ac.soton.eventb.emf.record.impl.RecordPackageImpl#getConstraint()
+	 * @generated
+	 */
+	int CONSTRAINT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__ANNOTATIONS = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__ANNOTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__EXTENSIONS = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__EXTENSIONS;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__ATTRIBUTES = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__REFERENCE = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Local Generated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__LOCAL_GENERATED = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__LOCAL_GENERATED;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__INTERNAL_ID = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Ordered Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__ORDERED_CHILDREN = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__ORDERED_CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__COMMENT = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__NAME = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__PREDICATE = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Theorem</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__THEOREM = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT__THEOREM;
+
+	/**
+	 * The number of structural features of the '<em>Constraint</em>' class.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT_FEATURE_COUNT = CorePackage.EVENT_BNAMED_COMMENTED_DERIVED_PREDICATE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.record.Multiplicity <em>Multiplicity</em>}' enum.
@@ -358,7 +579,7 @@ public interface RecordPackage extends EPackage {
 	 * @see ac.soton.eventb.emf.record.impl.RecordPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 2;
+	int MULTIPLICITY = 3;
 
 
 	/**
@@ -372,15 +593,16 @@ public interface RecordPackage extends EPackage {
 	EClass getRecord();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.record.Record#getSubsets <em>Subsets</em>}'.
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}'.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Subsets</em>'.
-	 * @see ac.soton.eventb.emf.record.Record#getSubsets()
+	 * @return the meta object for the reference '<em>Inherits</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#getInherits()
 	 * @see #getRecord()
 	 * @generated
 	 */
-	EReference getRecord_Subsets();
+	EReference getRecord_Inherits();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.record.Record#getFields <em>Fields</em>}'.
@@ -394,6 +616,42 @@ public interface RecordPackage extends EPackage {
 	EReference getRecord_Fields();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.record.Record#getConstraints <em>Constraints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#getConstraints()
+	 * @see #getRecord()
+	 * @generated
+	 */
+	EReference getRecord_Constraints();
+
+	/**
+	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Refines</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#getRefines()
+	 * @see #getRecord()
+	 * @generated
+	 */
+	EReference getRecord_Refines();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Record#isExtended <em>Extended</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Extended</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#isExtended()
+	 * @see #getRecord()
+	 * @generated
+	 */
+	EAttribute getRecord_Extended();
+
+	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.record.Field <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,17 +660,6 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getField();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Field#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ac.soton.eventb.emf.record.Field#getType()
-	 * @see #getField()
-	 * @generated
-	 */
-	EAttribute getField_Type();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Field#getMultiplicity <em>Multiplicity</em>}'.
@@ -424,6 +671,17 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getField_Multiplicity();
+
+	/**
+	 * Returns the meta object for class '{@link ac.soton.eventb.emf.record.Constraint <em>Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constraint</em>'.
+	 * @see ac.soton.eventb.emf.record.Constraint
+	 * @generated
+	 */
+	EClass getConstraint();
 
 	/**
 	 * Returns the meta object for enum '{@link ac.soton.eventb.emf.record.Multiplicity <em>Multiplicity</em>}'.
@@ -468,12 +726,13 @@ public interface RecordPackage extends EPackage {
 		EClass RECORD = eINSTANCE.getRecord();
 
 		/**
-		 * The meta object literal for the '<em><b>Subsets</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Inherits</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
+		 * @since 1.0
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECORD__SUBSETS = eINSTANCE.getRecord_Subsets();
+		EReference RECORD__INHERITS = eINSTANCE.getRecord_Inherits();
 
 		/**
 		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
@@ -482,6 +741,33 @@ public interface RecordPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RECORD__FIELDS = eINSTANCE.getRecord_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECORD__CONSTRAINTS = eINSTANCE.getRecord_Constraints();
+
+		/**
+		 * The meta object literal for the '<em><b>Refines</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECORD__REFINES = eINSTANCE.getRecord_Refines();
+
+		/**
+		 * The meta object literal for the '<em><b>Extended</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECORD__EXTENDED = eINSTANCE.getRecord_Extended();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.record.impl.FieldImpl <em>Field</em>}' class.
@@ -494,20 +780,23 @@ public interface RecordPackage extends EPackage {
 		EClass FIELD = eINSTANCE.getField();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FIELD__TYPE = eINSTANCE.getField_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute FIELD__MULTIPLICITY = eINSTANCE.getField_Multiplicity();
+
+		/**
+		 * The meta object literal for the '{@link ac.soton.eventb.emf.record.impl.ConstraintImpl <em>Constraint</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @see ac.soton.eventb.emf.record.impl.ConstraintImpl
+		 * @see ac.soton.eventb.emf.record.impl.RecordPackageImpl#getConstraint()
+		 * @generated
+		 */
+		EClass CONSTRAINT = eINSTANCE.getConstraint();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.record.Multiplicity <em>Multiplicity</em>}' enum.

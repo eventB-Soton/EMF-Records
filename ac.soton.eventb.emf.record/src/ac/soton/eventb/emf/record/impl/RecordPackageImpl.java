@@ -15,6 +15,7 @@ package ac.soton.eventb.emf.record.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 
+import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Multiplicity;
 import ac.soton.eventb.emf.record.Record;
@@ -58,6 +59,13 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * @generated
 	 */
 	private EClass fieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,7 +154,7 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecord_Subsets() {
+	public EReference getRecord_Inherits() {
 		return (EReference)recordEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -164,6 +172,33 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRecord_Constraints() {
+		return (EReference)recordEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecord_Refines() {
+		return (EReference)recordEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecord_Extended() {
+		return (EAttribute)recordEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getField() {
 		return fieldEClass;
 	}
@@ -173,7 +208,7 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getField_Type() {
+	public EAttribute getField_Multiplicity() {
 		return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -182,8 +217,8 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getField_Multiplicity() {
-		return (EAttribute)fieldEClass.getEStructuralFeatures().get(1);
+	public EClass getConstraint() {
+		return constraintEClass;
 	}
 
 	/**
@@ -224,12 +259,16 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 
 		// Create classes and their features
 		recordEClass = createEClass(RECORD);
-		createEReference(recordEClass, RECORD__SUBSETS);
+		createEReference(recordEClass, RECORD__INHERITS);
 		createEReference(recordEClass, RECORD__FIELDS);
+		createEReference(recordEClass, RECORD__CONSTRAINTS);
+		createEReference(recordEClass, RECORD__REFINES);
+		createEAttribute(recordEClass, RECORD__EXTENDED);
 
 		fieldEClass = createEClass(FIELD);
-		createEAttribute(fieldEClass, FIELD__TYPE);
 		createEAttribute(fieldEClass, FIELD__MULTIPLICITY);
+
+		constraintEClass = createEClass(CONSTRAINT);
 
 		// Create enums
 		multiplicityEEnum = createEEnum(MULTIPLICITY);
@@ -270,15 +309,21 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		recordEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
 		recordEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
 		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getType());
+		constraintEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedDerivedPredicateElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(recordEClass, Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecord_Subsets(), this.getRecord(), null, "subsets", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRecord_Fields(), this.getField(), null, "fields", null, 0, -1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Inherits(), this.getRecord(), null, "inherits", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Fields(), this.getField(), null, "fields", null, 0, -1, Record.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Record.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Refines(), this.getRecord(), null, "refines", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecord_Extended(), ecorePackage.getEBoolean(), "extended", "false", 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getField_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Multiplicity(), this.getMultiplicity(), "multiplicity", "ONE", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");

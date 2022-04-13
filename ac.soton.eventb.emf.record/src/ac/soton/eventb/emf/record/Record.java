@@ -27,8 +27,11 @@ import org.eventb.emf.core.AbstractExtension;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.record.Record#getSubsets <em>Subsets</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Record#getFields <em>Fields</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#isExtended <em>Extended</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,30 +41,32 @@ import org.eventb.emf.core.AbstractExtension;
  */
 public interface Record extends EventBNamedCommentedDataElaborationElement, AbstractExtension {
 	/**
-	 * Returns the value of the '<em><b>Subsets</b></em>' reference.
+	 * Returns the value of the '<em><b>Inherits</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Subsets</em>' reference isn't clear,
+	 * If the meaning of the '<em>Inherits</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
+	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subsets</em>' reference.
-	 * @see #setSubsets(Record)
-	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Subsets()
+	 * @return the value of the '<em>Inherits</em>' reference.
+	 * @see #setInherits(Record)
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Inherits()
 	 * @model
 	 * @generated
 	 */
-	Record getSubsets();
+	Record getInherits();
 
 	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getSubsets <em>Subsets</em>}' reference.
+	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subsets</em>' reference.
-	 * @see #getSubsets()
+	 * @param value the new value of the '<em>Inherits</em>' reference.
+	 * @see #getInherits()
 	 * @generated
 	 */
-	void setSubsets(Record value);
+	void setInherits(Record value);
 
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
@@ -74,9 +79,91 @@ public interface Record extends EventBNamedCommentedDataElaborationElement, Abst
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Fields()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<Field> getFields();
 
+	/**
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link ac.soton.eventb.emf.record.Constraint}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Constraints()
+	 * @model containment="true" transient="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<Constraint> getConstraints();
+
+	/**
+	 * Returns the value of the '<em><b>Refines</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refines</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refines</em>' reference.
+	 * @see #setRefines(Record)
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Refines()
+	 * @model
+	 * @generated
+	 */
+	Record getRefines();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Refines</em>' reference.
+	 * @see #getRefines()
+	 * @generated
+	 */
+	void setRefines(Record value);
+
+	/**
+	 * Returns the value of the '<em><b>Extended</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extended</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extended</em>' attribute.
+	 * @see #setExtended(boolean)
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Extended()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isExtended();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#isExtended <em>Extended</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Extended</em>' attribute.
+	 * @see #isExtended()
+	 * @generated
+	 */
+	void setExtended(boolean value);
+
+	/******** CUSTOM CODE... NOT GENERATED ***/
+	/**
+	 * Returns the value of the name to be used for 'self' in constraints contained by the record
+	 * @custom
+	 * @since 1.0
+	 */
+	String getSelfName();
+	
 } // Record
