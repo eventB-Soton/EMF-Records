@@ -9,8 +9,8 @@
         eType="#//Field" volatile="true" transient="true" derived="true" containment="true"
         resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
-        eType="ecore:EClass ../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedDerivedPredicateElement"
-        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false"/>
+        eType="#//Constraint" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refines" eType="#//Record"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -24,4 +24,5 @@
     <eLiterals name="MANY" value="1"/>
     <eLiterals name="OPTIONAL" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedDerivedPredicateElement"/>
 </ecore:EPackage>

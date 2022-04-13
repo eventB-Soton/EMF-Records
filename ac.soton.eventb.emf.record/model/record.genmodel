@@ -24,5 +24,6 @@
     <genClasses ecoreClass="record.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Field/multiplicity"/>
     </genClasses>
+    <genClasses ecoreClass="record.ecore#//Constraint"/>
   </genPackages>
 </genmodel:GenModel>
