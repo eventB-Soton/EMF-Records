@@ -31,13 +31,13 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://emf.eventb.org/models/core/context/2014"
-            class="ac.soton.eventb.emf.record.provider.RecordItemProviderAdapterFactory"/>
+            uri="http://emf.eventb.org/models/core/context/2022"
+            class="ac.soton.eventb.emf.record.provider.RecordItemProviderAdapterFactory$CoreChildCreationExtender"/>
    </extension>
    
      <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://emf.eventb.org/models/core/machine/2014"
+            uri="http://emf.eventb.org/models/core/machine/2022"
             class="ac.soton.eventb.emf.record.provider.RecordItemProviderAdapterFactory$CoreChildCreationExtender"/>
    </extension>
    
