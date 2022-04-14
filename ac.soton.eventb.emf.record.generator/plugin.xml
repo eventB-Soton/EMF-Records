@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <!--
-    Copyright (c) 2020 University of Southampton.
+    Copyright (c) 2020,2022 University of Southampton.
    
     This program and the accompanying materials
     are made available under the terms of the Eclipse Public License 2.0
@@ -15,60 +15,71 @@
  -->
 
 <plugin>
-  <extension
-         point="org.eclipse.ui.commands">
-      <category
-        description="Commands associated with Records"
-        id="ac.soton.eventb.records.commands"
-        name="Record Commands">
-      </category>
-      <command
-            categoryId="ac.soton.eventb.records.commands"
-            defaultHandler="ac.soton.emf.translator.eventb.handler.EventBTranslateHandler"
-            description="records"        
-             id="ac.soton.eventb.records.commands.record"
-            name="Records">
-      </command>
-   </extension>
+
+   <!--translators for records in machine and context-->
    <extension
          point="ac.soton.emf.translators">
       <translator
             adapter_class="ac.soton.emf.translator.eventb.adapter.EventBTranslatorAdapter"
-            command_id="ac.soton.eventb.records.commands.record"
-            name="Records Machine"
+            command_id="ac.soton.eventb.emf.record.generator.translateAllRecords"
+            name="Machine Record Translator"
             root_source_class="Machine"
-            source_package="http://emf.eventb.org/models/core/machine/2014"
-            translator_id="ac.soton.eventb.records.translator.machine">
+            source_package="http://emf.eventb.org/models/core/machine/2022"
+            translator_id="ac.soton.eventb.emf.record.generator.machineRecordTranslator">
       </translator>
       <translator
             adapter_class="ac.soton.emf.translator.eventb.adapter.EventBTranslatorAdapter"
-            command_id="ac.soton.eventb.records.commands.record"
-            name="Records Context"
+            command_id="ac.soton.eventb.emf.record.generator.translateAllRecords"
+            name="Context Record Translator"
             root_source_class="Context"
-            source_package="http://emf.eventb.org/models/core/context/2014"
-            translator_id="ac.soton.eventb.records.translator.context">
+            source_package="http://emf.eventb.org/models/core/context/2022"
+            translator_id="ac.soton.eventb.emf.record.generator.contextRecordTranslator">
       </translator>
    </extension>
    <extension
          point="ac.soton.emf.translator.rulesets">
       <ruleset
-            name="RecordsRulesMachine"
-            translator_id="ac.soton.eventb.records.translator.machine">
+            name="Machine Record Translator Ruleset"
+            translator_id="ac.soton.eventb.emf.record.generator.machineRecordTranslator">
          <rule
-               name="RecordRule"
-               rule_class="ac.soton.eventb.records.generator.rules.RecordRuleMachine"
+               name="RecordRuleMachine"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.RecordRuleMachine"
                source_class="Record"
-               source_package="http://soton.ac.uk/models/eventb/record/2019">
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
+         </rule>
+         <rule
+               name="FieldRuleMachine"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.FieldRuleMachine"
+               source_class="Field"
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
+         </rule>
+         <rule
+               name="ConstraintRuleMachine"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.ConstraintRuleMachine"
+               source_class="Constraint"
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
          </rule>
       </ruleset>
       <ruleset
-            name="RecordsRulesContext"
-            translator_id="ac.soton.eventb.records.translator.context">
+            name="Context Record Translator Ruleset"
+            translator_id="ac.soton.eventb.emf.record.generator.contextRecordTranslator">
          <rule
-               name="RecordRule"
-               rule_class="ac.soton.eventb.records.generator.rules.RecordRuleContext"
+               name="RecordRuleContext"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.RecordRuleContext"
                source_class="Record"
-               source_package="http://soton.ac.uk/models/eventb/record/2019">
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
+         </rule>
+         <rule
+               name="FieldRuleContext"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.FieldRuleContext"
+               source_class="Field"
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
+         </rule>
+         <rule
+               name="ConstraintRuleContext"
+               rule_class="ac.soton.eventb.emf.record.generator.rules.ConstraintRuleContext"
+               source_class="Constraint"
+               source_package="http://soton.ac.uk/models/eventb/record/2022">
          </rule>
       </ruleset>
    </extension>
