@@ -158,6 +158,30 @@ public class RecordItemProviderAdapterFactory extends RecordAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ac.soton.eventb.emf.record.Constraint} instances.
+	 * <!-- begin-user-doc -->
+ * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstraintItemProvider constraintItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ac.soton.eventb.emf.record.Constraint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstraintAdapter() {
+		if (constraintItemProvider == null) {
+			constraintItemProvider = new ConstraintItemProvider(this);
+		}
+
+		return constraintItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,6 +309,7 @@ public class RecordItemProviderAdapterFactory extends RecordAdapterFactory imple
 	public void dispose() {
 		if (recordItemProvider != null) recordItemProvider.dispose();
 		if (fieldItemProvider != null) fieldItemProvider.dispose();
+		if (constraintItemProvider != null) constraintItemProvider.dispose();
 	}
 
 	/**
@@ -371,6 +396,14 @@ public class RecordItemProviderAdapterFactory extends RecordAdapterFactory imple
 						(createChildParameter
 							(CorePackage.Literals.ANNOTATION__CONTENTS,
 							 RecordFactory.eINSTANCE.createField()));
+
+				
+				annotation = RecordPackage.Literals.CONSTRAINT.getEAnnotation("org.eventb.emf.core.extendedMetaClasses");
+				if (annotation == null  || annotation.getReferences().contains(object.eClass()))
+					newChildDescriptors.add
+						(createChildParameter
+							(CorePackage.Literals.ANNOTATION__CONTENTS,
+							 RecordFactory.eINSTANCE.createConstraint()));
 
 				return null;
 			}

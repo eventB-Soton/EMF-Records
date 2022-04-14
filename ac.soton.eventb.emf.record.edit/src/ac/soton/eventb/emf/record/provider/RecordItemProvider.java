@@ -77,7 +77,9 @@ public class RecordItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtensionIdPropertyDescriptor(object);
-			addSubsetsPropertyDescriptor(object);
+			addInheritsPropertyDescriptor(object);
+			addRefinesPropertyDescriptor(object);
+			addExtendedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,23 +107,70 @@ public class RecordItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Subsets feature.
+	 * This adds a property descriptor for the Inherits feature.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSubsetsPropertyDescriptor(Object object) {
+	protected void addInheritsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Record_subsets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Record_subsets_feature", "_UI_Record_type"),
-				 RecordPackage.Literals.RECORD__SUBSETS,
+				 getString("_UI_Record_inherits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_inherits_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__INHERITS,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Refines feature.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefinesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Record_refines_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_refines_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__REFINES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Extended feature.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtendedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Record_extended_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_extended_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__EXTENDED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -139,6 +188,7 @@ public class RecordItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RecordPackage.Literals.RECORD__FIELDS);
+			childrenFeatures.add(RecordPackage.Literals.RECORD__CONSTRAINTS);
 		}
 		return childrenFeatures;
 	}
@@ -194,9 +244,11 @@ public class RecordItemProvider
 
 		switch (notification.getFeatureID(Record.class)) {
 			case RecordPackage.RECORD__EXTENSION_ID:
+			case RecordPackage.RECORD__EXTENDED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecordPackage.RECORD__FIELDS:
+			case RecordPackage.RECORD__CONSTRAINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -228,6 +280,11 @@ public class RecordItemProvider
 				(createChildParameter
 					(RecordPackage.Literals.RECORD__FIELDS,
 				 	RecordFactory.eINSTANCE.createField()));
+		
+			newChildDescriptors.add
+				(createChildParameter
+					(RecordPackage.Literals.RECORD__CONSTRAINTS,
+				 	RecordFactory.eINSTANCE.createConstraint()));
 	}
 
 }

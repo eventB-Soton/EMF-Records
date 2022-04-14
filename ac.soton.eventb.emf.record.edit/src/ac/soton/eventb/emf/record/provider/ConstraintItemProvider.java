@@ -1,23 +1,22 @@
-/*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
- *
+/**
+ * Copyright (c) 2020, 2022 University of Southampton.
+ * 
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
  * which accompanies this distribution, and is available at
  * https://www.eclipse.org/legal/epl-2.0/
- *
+ * 
  * SPDX-License-Identifier: EPL-2.0
- *
+ * 
  * Contributors:
- *    University of Southampton - initial API and implementation
- *******************************************************************************/
+ *     University of Southampton - initial API and implementation
+ *
+ * $Id$
+ */
 package ac.soton.eventb.emf.record.provider;
 
 
-import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
-import ac.soton.eventb.emf.core.extension.coreextension.provider.EventBNamedCommentedDataElaborationElementItemProvider;
-
-import ac.soton.eventb.emf.record.Field;
+import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.RecordFactory;
 import ac.soton.eventb.emf.record.RecordPackage;
 
@@ -29,26 +28,26 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eventb.emf.core.CorePackage;
 
+import org.eventb.emf.core.provider.EventBNamedCommentedDerivedPredicateElementItemProvider;
+
 /**
- * This is the item provider adapter for a {@link ac.soton.eventb.emf.record.Field} object.
+ * This is the item provider adapter for a {@link ac.soton.eventb.emf.record.Constraint} object.
  * <!-- begin-user-doc -->
+ * @since 1.0
  * <!-- end-user-doc -->
  * @generated
  */
-public class FieldItemProvider
-	extends EventBNamedCommentedDataElaborationElementItemProvider
+public class ConstraintItemProvider
+	extends EventBNamedCommentedDerivedPredicateElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -61,7 +60,7 @@ public class FieldItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FieldItemProvider(AdapterFactory adapterFactory) {
+	public ConstraintItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,65 +75,19 @@ public class FieldItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
-			addMultiplicityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Type_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_type_feature", "_UI_Type_type"),
-				 CoreextensionPackage.Literals.TYPE__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Multiplicity feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMultiplicityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Field_multiplicity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_multiplicity_feature", "_UI_Field_type"),
-				 RecordPackage.Literals.FIELD__MULTIPLICITY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Field.gif.
+	 * This returns Constraint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Field"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constraint"));
 	}
 
 	/**
@@ -145,10 +98,10 @@ public class FieldItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Field)object).getName();
+		String label = ((Constraint)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Field_type") :
-			getString("_UI_Field_type") + " " + label;
+			getString("_UI_Constraint_type") :
+			getString("_UI_Constraint_type") + " " + label;
 	}
 
 	/**
@@ -161,13 +114,6 @@ public class FieldItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Field.class)) {
-			case RecordPackage.FIELD__TYPE:
-			case RecordPackage.FIELD__MULTIPLICITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
