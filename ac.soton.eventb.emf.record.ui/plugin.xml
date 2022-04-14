@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2020 University of Southampton.
+   
+    This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License 2.0
+    which accompanies this distribution, and is available at
+    https://www.eclipse.org/legal/epl-2.0/
+   
+    SPDX-License-Identifier: EPL-2.0
+   
+    Contributors:
+       University of Southampton - initial API and implementation
+ -->
+
+<plugin>
+
+  	<extension
+         point="org.eclipse.ui.commands">
+      <category
+        description="Commands associated with Records"
+        id="ac.soton.eventb.emf.recordCategory"
+        name="Record Command Category">
+      </category>
+      <command
+            categoryId="ac.soton.eventb.emf.recordCategory"
+            defaultHandler="ac.soton.eventb.emf.record.ui.TranslateAllRecordsCommandHandler"
+            description="Command to translate Records into Event-B"        
+             id="ac.soton.eventb.emf.records.generator.translateRecordsToEventB"
+            name="Record Translation Command">
+      </command>
+   </extension>
+   
+   <extension
+      name="Records translation menu"
+      point="org.eclipse.ui.menus">
+      
+	<menuContribution
+            locationURI="popup:fr.systerel.explorer.navigator.view">
+         <command
+               commandId="ac.soton.eventb.emf.records.generator.translateRecordsToEventB"
+               icon="icons/Translate_IUMLB.png"
+               label="Translate Records to Event-B"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <or>
+	                   <instanceof
+	                         value="org.eventb.core.IMachineRoot">
+	                   </instanceof>
+	                   <instanceof
+	                         value="org.eventb.core.IContextRoot">
+	                   </instanceof>		               
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+	</extension>
+
+</plugin>
