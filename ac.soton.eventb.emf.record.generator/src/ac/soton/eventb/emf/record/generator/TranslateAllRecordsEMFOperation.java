@@ -44,7 +44,7 @@ import ac.soton.emf.translator.TranslatorFactory;
  * following execution, a report can be retrieved using getReport()
  * 
  * @author cfs
- * @since 4.0
+ * @since 0.2
  *
  */
 public class TranslateAllRecordsEMFOperation extends AbstractEMFOperation {
