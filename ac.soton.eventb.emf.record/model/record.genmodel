@@ -15,11 +15,12 @@
       <genEnumLiterals ecoreEnumLiteral="record.ecore#//Multiplicity/OPTIONAL"/>
     </genEnums>
     <genClasses ecoreClass="record.ecore#//Record">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference record.ecore#//Record/inherits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference record.ecore#//Record/fields"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference record.ecore#//Record/constraints"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference record.ecore#//Record/refines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/inheritsNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/selfName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/extended"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/refined"/>
     </genClasses>
     <genClasses ecoreClass="record.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Field/multiplicity"/>
