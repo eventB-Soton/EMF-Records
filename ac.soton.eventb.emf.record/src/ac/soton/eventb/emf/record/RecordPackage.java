@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -211,16 +211,6 @@ public interface RecordPackage extends EPackage {
 	int RECORD__EXTENSION_ID = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Inherits</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * @since 1.0
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECORD__INHERITS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
@@ -228,7 +218,7 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD__FIELDS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
+	int RECORD__FIELDS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -238,17 +228,27 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD__CONSTRAINTS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
+	int RECORD__CONSTRAINTS = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Refines</b></em>' reference.
+	 * The feature id for the '<em><b>Inherits Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD__REFINES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 4;
+	int RECORD__INHERITS_NAMES = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Self Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__SELF_NAME = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Extended</b></em>' attribute.
@@ -261,6 +261,16 @@ public interface RecordPackage extends EPackage {
 	int RECORD__EXTENDED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Refined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD__REFINED = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Record</em>' class.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
@@ -268,7 +278,7 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 6;
+	int RECORD_FEATURE_COUNT = CoreextensionPackage.EVENT_BNAMED_COMMENTED_DATA_ELABORATION_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link ac.soton.eventb.emf.record.impl.FieldImpl <em>Field</em>}' class.
@@ -585,24 +595,13 @@ public interface RecordPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.record.Record <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Record</em>'.
 	 * @see ac.soton.eventb.emf.record.Record
 	 * @generated
 	 */
 	EClass getRecord();
-
-	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * @since 1.0
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inherits</em>'.
-	 * @see ac.soton.eventb.emf.record.Record#getInherits()
-	 * @see #getRecord()
-	 * @generated
-	 */
-	EReference getRecord_Inherits();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ac.soton.eventb.emf.record.Record#getFields <em>Fields</em>}'.
@@ -628,16 +627,28 @@ public interface RecordPackage extends EPackage {
 	EReference getRecord_Constraints();
 
 	/**
-	 * Returns the meta object for the reference '{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}'.
+	 * Returns the meta object for the attribute list '{@link ac.soton.eventb.emf.record.Record#getInheritsNames <em>Inherits Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Refines</em>'.
-	 * @see ac.soton.eventb.emf.record.Record#getRefines()
+	 * @return the meta object for the attribute list '<em>Inherits Names</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#getInheritsNames()
 	 * @see #getRecord()
 	 * @generated
 	 */
-	EReference getRecord_Refines();
+	EAttribute getRecord_InheritsNames();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Record#getSelfName <em>Self Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Self Name</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#getSelfName()
+	 * @see #getRecord()
+	 * @generated
+	 */
+	EAttribute getRecord_SelfName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Record#isExtended <em>Extended</em>}'.
@@ -650,6 +661,18 @@ public interface RecordPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRecord_Extended();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ac.soton.eventb.emf.record.Record#isRefined <em>Refined</em>}'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refined</em>'.
+	 * @see ac.soton.eventb.emf.record.Record#isRefined()
+	 * @see #getRecord()
+	 * @generated
+	 */
+	EAttribute getRecord_Refined();
 
 	/**
 	 * Returns the meta object for class '{@link ac.soton.eventb.emf.record.Field <em>Field</em>}'.
@@ -726,15 +749,6 @@ public interface RecordPackage extends EPackage {
 		EClass RECORD = eINSTANCE.getRecord();
 
 		/**
-		 * The meta object literal for the '<em><b>Inherits</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * @since 1.0
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECORD__INHERITS = eINSTANCE.getRecord_Inherits();
-
-		/**
 		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -752,13 +766,22 @@ public interface RecordPackage extends EPackage {
 		EReference RECORD__CONSTRAINTS = eINSTANCE.getRecord_Constraints();
 
 		/**
-		 * The meta object literal for the '<em><b>Refines</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Inherits Names</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * @since 1.0
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECORD__REFINES = eINSTANCE.getRecord_Refines();
+		EAttribute RECORD__INHERITS_NAMES = eINSTANCE.getRecord_InheritsNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Self Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECORD__SELF_NAME = eINSTANCE.getRecord_SelfName();
 
 		/**
 		 * The meta object literal for the '<em><b>Extended</b></em>' attribute feature.
@@ -768,6 +791,15 @@ public interface RecordPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RECORD__EXTENDED = eINSTANCE.getRecord_Extended();
+
+		/**
+		 * The meta object literal for the '<em><b>Refined</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * @since 1.0
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECORD__REFINED = eINSTANCE.getRecord_Refined();
 
 		/**
 		 * The meta object literal for the '{@link ac.soton.eventb.emf.record.impl.FieldImpl <em>Field</em>}' class.

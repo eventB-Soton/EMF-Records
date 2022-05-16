@@ -26,6 +26,13 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Record</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getFields() <em>Fields</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getConstraints() <em>Constraints</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class RecordTest extends TestCase {
@@ -97,6 +104,32 @@ public class RecordTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getFields() <em>Fields</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.record.Record#getFields()
+	 * @generated
+	 */
+	public void testGetFields() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getConstraints() <em>Constraints</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.record.Record#getConstraints()
+	 * @generated
+	 */
+	public void testGetConstraints() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	@Test

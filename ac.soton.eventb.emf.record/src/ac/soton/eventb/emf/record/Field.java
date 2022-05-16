@@ -29,7 +29,7 @@ import ac.soton.eventb.emf.core.extension.coreextension.Type;
  * </p>
  *
  * @see ac.soton.eventb.emf.record.RecordPackage#getField()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='fieldsHaveTypesUnlessRefined'"
  * @generated
  */
 public interface Field extends EventBNamedCommentedDataElaborationElement, Type {

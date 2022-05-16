@@ -77,9 +77,10 @@ public class RecordItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtensionIdPropertyDescriptor(object);
-			addInheritsPropertyDescriptor(object);
-			addRefinesPropertyDescriptor(object);
+			addInheritsNamesPropertyDescriptor(object);
+			addSelfNamePropertyDescriptor(object);
 			addExtendedPropertyDescriptor(object);
+			addRefinedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,47 +108,47 @@ public class RecordItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Inherits feature.
+	 * This adds a property descriptor for the Inherits Names feature.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInheritsPropertyDescriptor(Object object) {
+	protected void addInheritsNamesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Record_inherits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Record_inherits_feature", "_UI_Record_type"),
-				 RecordPackage.Literals.RECORD__INHERITS,
+				 getString("_UI_Record_inheritsNames_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_inheritsNames_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__INHERITS_NAMES,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Refines feature.
+	 * This adds a property descriptor for the Self Name feature.
 	 * <!-- begin-user-doc -->
 	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefinesPropertyDescriptor(Object object) {
+	protected void addSelfNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Record_refines_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Record_refines_feature", "_UI_Record_type"),
-				 RecordPackage.Literals.RECORD__REFINES,
+				 getString("_UI_Record_selfName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_selfName_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__SELF_NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -155,7 +156,6 @@ public class RecordItemProvider
 	/**
 	 * This adds a property descriptor for the Extended feature.
 	 * <!-- begin-user-doc -->
-	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -167,6 +167,28 @@ public class RecordItemProvider
 				 getString("_UI_Record_extended_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Record_extended_feature", "_UI_Record_type"),
 				 RecordPackage.Literals.RECORD__EXTENDED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Refined feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefinedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Record_refined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Record_refined_feature", "_UI_Record_type"),
+				 RecordPackage.Literals.RECORD__REFINED,
 				 true,
 				 false,
 				 false,
@@ -244,7 +266,10 @@ public class RecordItemProvider
 
 		switch (notification.getFeatureID(Record.class)) {
 			case RecordPackage.RECORD__EXTENSION_ID:
+			case RecordPackage.RECORD__INHERITS_NAMES:
+			case RecordPackage.RECORD__SELF_NAME:
 			case RecordPackage.RECORD__EXTENDED:
+			case RecordPackage.RECORD__REFINED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RecordPackage.RECORD__FIELDS:

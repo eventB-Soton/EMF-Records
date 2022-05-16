@@ -27,47 +27,21 @@ import org.eventb.emf.core.AbstractExtension;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Record#getFields <em>Fields</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Record#getConstraints <em>Constraints</em>}</li>
- *   <li>{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getInheritsNames <em>Inherits Names</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getSelfName <em>Self Name</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Record#isExtended <em>Extended</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#isRefined <em>Refined</em>}</li>
  * </ul>
  * </p>
  *
  * @see ac.soton.eventb.emf.record.RecordPackage#getRecord()
  * @model annotation="org.eventb.emf.core.extendedMetaClasses"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='mustHaveAName exclusive_extendsRefinesInherits refinedOnlyInMachines noNewRecordsInMachines'"
  * @generated
  */
 public interface Record extends EventBNamedCommentedDataElaborationElement, AbstractExtension {
-	/**
-	 * Returns the value of the '<em><b>Inherits</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Inherits</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * @since 1.0
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inherits</em>' reference.
-	 * @see #setInherits(Record)
-	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Inherits()
-	 * @model
-	 * @generated
-	 */
-	Record getInherits();
-
-	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getInherits <em>Inherits</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * @since 1.0
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inherits</em>' reference.
-	 * @see #getInherits()
-	 * @generated
-	 */
-	void setInherits(Record value);
-
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link ac.soton.eventb.emf.record.Field}.
@@ -102,36 +76,53 @@ public interface Record extends EventBNamedCommentedDataElaborationElement, Abst
 	EList<Constraint> getConstraints();
 
 	/**
-	 * Returns the value of the '<em><b>Refines</b></em>' reference.
+	 * Returns the value of the '<em><b>Inherits Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Refines</em>' reference isn't clear,
+	 * If the meaning of the '<em>Inherits Names</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Refines</em>' reference.
-	 * @see #setRefines(Record)
-	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Refines()
+	 * @return the value of the '<em>Inherits Names</em>' attribute list.
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_InheritsNames()
 	 * @model
 	 * @generated
 	 */
-	Record getRefines();
+	EList<String> getInheritsNames();
 
-	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getRefines <em>Refines</em>}' reference.
+/**
+	 * Returns the value of the '<em><b>Self Name</b></em>' attribute.
+	 * The default value is <code>"self"</code>.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * Returns the value of the name to be used for 'self' in constraints contained by the record
+	 * </p>
 	 * @since 1.0
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Refines</em>' reference.
-	 * @see #getRefines()
+	 * @return the value of the '<em>Self Name</em>' attribute.
+	 * @see #setSelfName(String)
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_SelfName()
+	 * @model default="self"
 	 * @generated
 	 */
-	void setRefines(Record value);
+	String getSelfName();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#getSelfName <em>Self Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * Set the value of the name to be used for 'self' in constraints contained by the record
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Self Name</em>' attribute.
+	 * @see #getSelfName()
+	 * @generated
+	 */
+	void setSelfName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Extended</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Extended</em>' attribute isn't clear,
@@ -142,7 +133,7 @@ public interface Record extends EventBNamedCommentedDataElaborationElement, Abst
 	 * @return the value of the '<em>Extended</em>' attribute.
 	 * @see #setExtended(boolean)
 	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Extended()
-	 * @model default="false"
+	 * @model
 	 * @generated
 	 */
 	boolean isExtended();
@@ -158,12 +149,32 @@ public interface Record extends EventBNamedCommentedDataElaborationElement, Abst
 	 */
 	void setExtended(boolean value);
 
-	/******** CUSTOM CODE... NOT GENERATED ***/
 	/**
-	 * Returns the value of the name to be used for 'self' in constraints contained by the record
-	 * @custom
+	 * Returns the value of the '<em><b>Refined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refined</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * @since 1.0
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refined</em>' attribute.
+	 * @see #setRefined(boolean)
+	 * @see ac.soton.eventb.emf.record.RecordPackage#getRecord_Refined()
+	 * @model
+	 * @generated
 	 */
-	String getSelfName();
+	boolean isRefined();
+
+	/**
+	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Record#isRefined <em>Refined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Refined</em>' attribute.
+	 * @see #isRefined()
+	 * @generated
+	 */
+	void setRefined(boolean value);
 	
 } // Record

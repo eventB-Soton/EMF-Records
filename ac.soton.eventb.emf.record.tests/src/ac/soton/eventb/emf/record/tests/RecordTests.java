@@ -44,6 +44,7 @@ public class RecordTests extends TestSuite {
 		TestSuite suite = new RecordTests("record Tests");
 		suite.addTestSuite(RecordTest.class);
 		suite.addTestSuite(FieldTest.class);
+		suite.addTestSuite(ConstraintTest.class);
 		return suite;
 	}
 
