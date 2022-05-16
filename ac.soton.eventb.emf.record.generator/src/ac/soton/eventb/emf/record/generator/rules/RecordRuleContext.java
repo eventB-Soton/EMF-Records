@@ -62,21 +62,22 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 	    Record record = (Record) sourceElement;
 	    Context context = (Context)record.getContaining(ContextPackage.Literals.CONTEXT); 		
 
-	    //generate a constant and axiom for a new record that inherits (subsets) another
-	    if (record.getInherits() != null) {
-	    	Constant recordConstant = (Constant) Make.constant(record.getName(), "generated for inheriting record");
-	    	ret.add(Make.descriptor(context, constants, recordConstant, 0));
-	    	
-	    	Axiom recordAxiom = Make.axiom("axm_"+record.getName(), false,
-	    						record.getName() + " \u2286 " + record.getInherits().getName(),
-	    						"generated for inheriting record");
-	    	ret.add(Make.descriptor(context, axioms, recordAxiom, 0));
-	    }
-	    
-	    //generate a carrier set for a new record that neither inherits nor extends (extends = refines+extended)
-	    else if (record.getRefines()==null){
-	    	CarrierSet recordSet = (CarrierSet) Make.set(record.getName() , "generated for new record");
-	    	ret.add(Make.descriptor(context, sets, recordSet, 0));
+	    if (!record.isExtended()){
+		    if (record.getInheritsNames().size()==0) {
+			    //generate a carrier set for a new record that does not inherit
+		    	CarrierSet recordSet = (CarrierSet) Make.set(record.getName() , "generated for new record");
+		    	ret.add(Make.descriptor(context, sets, recordSet, 0));
+		    }else {
+			    //generate a constant and axiom for a new record that inherits (i.e. is a subset of) another
+		    	
+		    	Constant recordConstant = (Constant) Make.constant(record.getName(), "generated for inheriting record");
+		    	ret.add(Make.descriptor(context, constants, recordConstant, 0));
+		    	
+		    	Axiom recordAxiom = Make.axiom("typeof_"+record.getName(), false,
+		    						record.getName() + " \u2286 " + record.getInheritsNames().get(0),
+		    						"generated for inheriting record");
+		    	ret.add(Make.descriptor(context, axioms, recordAxiom, 0));
+		    }
 	    }
 	
 		return ret;	

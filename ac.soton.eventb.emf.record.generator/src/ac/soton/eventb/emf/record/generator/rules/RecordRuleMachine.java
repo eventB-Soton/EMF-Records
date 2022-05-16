@@ -18,7 +18,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.machine.Invariant;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -46,10 +45,11 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
 		//check we have a record in a machine and that it either inherits or refines
-		// note that you cannot have a record in a machine that neither inherits nor refines another record
 		if	(!(sourceElement instanceof Record)) return false;
-		if	(((Record)sourceElement).getContaining(MachinePackage.Literals.MACHINE)==null) return false;
-		if	(((Record)sourceElement).getInherits()==null && ((Record)sourceElement).getRefines()==null) return false;
+		Record record = (Record)sourceElement;
+		if (record.getContaining(MachinePackage.Literals.MACHINE)==null) return false;
+		if (record.isExtended()) return false;
+		if (record.getInheritsNames()==null && !(record.isRefined())) return false;
 		return true;	
 	}
 	
@@ -58,29 +58,29 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
 		
 	    Record 	record = (Record)sourceElement;
+		if (record.isExtended()) return ret; //should not get here if extended
 	    Machine machine = (Machine)record.getContaining(MachinePackage.Literals.MACHINE); 
-	    
-		//generate a variable and invariant for a new record that inherits (subsets) another
-	    if (record.getInherits() instanceof Record) {
-	    	Variable recordVariable = Make.variable(record.getName(), "generated for inheriting record");
+
+    	if (record.isRefined())  {
+        	//if the record refines another record, we need to repeat the abstract variable (but no invariant is needed)
+	    	Variable recordVariable = Make.variable(record.getName(), "generated for refined record");
 	    	ret.add(Make.descriptor(machine, variables, recordVariable, 0));
 	    	
-	    	Invariant recordInvariant = Make.invariant(
-	    			"inv_" + record.getName(), 
-	    			false, 
-	    			record.getName() + " \u2286 " + record.getInherits().getName(),
-	    			"generated for inheriting record");
-	    	ret.add(Make.descriptor(machine, invariants, recordInvariant, 0));
-	    	
-	    }else 
-	    	//if it refines a record that is in a machine, we need to repeat the abstract variable (but no invariant is needed)
-	    	if (record.getRefines() instanceof Record && 
-	    		((Record)record.getRefines()).getContaining(CorePackage.Literals.EVENT_BNAMED_COMMENTED_COMPONENT_ELEMENT) instanceof Machine)  
-	    	 {
-		    	Variable recordVariable = Make.variable(record.getName(), "generated for refined record");
-		    	ret.add(Make.descriptor(machine, variables, recordVariable, 0));
-	    	 }
-		
+    	}else  {
+      		 //generate a variable for a new record 
+		    Variable recordVariable = Make.variable(record.getName(), "generated for inheriting record");
+		    ret.add(Make.descriptor(machine, variables, recordVariable, 0));
+    		if (record.getInheritsNames().size() >0) {
+    			//if the new record inherits, generate an invariant to subset the inherited record 
+    			//(it should inherit in a machine, if not we leave it to cause a Rodin error)
+		    	Invariant recordInvariant = Make.invariant(
+		    			"typeof_" + record.getName(), 
+		    			false, 
+		    			record.getName() + " \u2286 " + record.getInheritsNames().get(0),
+		    			"generated for inheriting record");
+		    	ret.add(Make.descriptor(machine, invariants, recordInvariant, 0));
+		    } 
+    	}
 		return ret;	
 	}
 
