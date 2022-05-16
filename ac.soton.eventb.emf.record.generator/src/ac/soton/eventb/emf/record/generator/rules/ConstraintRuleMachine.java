@@ -58,7 +58,9 @@ public class ConstraintRuleMachine extends AbstractRule implements IRule {
 	    Record record = (Record) constraint.getContaining(RecordPackage.Literals.RECORD);
 	    Machine machine = (Machine)record.getContaining(MachinePackage.Literals.MACHINE); 		
 		
-    	Invariant invariant = Make.invariant(constraint.getName(), false,
+    	Invariant invariant = Make.invariant(
+    			constraint.getName(), 
+    			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
     	ret.add(Make.descriptor(machine, invariants, invariant, 0));
@@ -68,7 +70,7 @@ public class ConstraintRuleMachine extends AbstractRule implements IRule {
 
 	private String quantify(Constraint constraint, Record record) {
 		for (String t : constraint.getPredicate().split(IDENTIFIER_SEPARATOR)) {
-			if ("self".equals(t)) {
+			if (t.equals(record.getSelfName())) {
 				return "\u2200"+record.getSelfName()+"\u00b7"+record.getSelfName()+"\u2208"+record.getName()+" \u21d2 ("+constraint.getPredicate()+")";				
 			}
 		}

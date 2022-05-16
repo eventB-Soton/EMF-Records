@@ -40,6 +40,7 @@ import ac.soton.eventb.emf.record.RecordPackage;
  */
 public class ConstraintRuleContext extends AbstractRule implements IRule {
 	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
+	private static final String IDENTIFIER_SEPARATOR = "\\W+";
 
 	@Override
 	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> translatedElements) throws Exception {
@@ -50,7 +51,9 @@ public class ConstraintRuleContext extends AbstractRule implements IRule {
 	    Context context = (Context)record.getContaining(ContextPackage.Literals.CONTEXT); 		
 		
 	    
-    	Axiom recordAxiom = Make.axiom(constraint.getName(), false,
+    	Axiom recordAxiom = Make.axiom(
+    			constraint.getName(), 
+    			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
     	ret.add(Make.descriptor(context, axioms, recordAxiom, 0));
@@ -59,7 +62,12 @@ public class ConstraintRuleContext extends AbstractRule implements IRule {
 	}
 
 	private String quantify(Constraint constraint, Record record) {
-		return "\u2200"+record.getSelfName()+"\u00b7"+record.getSelfName()+"\u2208"+record.getName()+" \u21d2 ("+constraint.getPredicate()+")";
+		for (String t : constraint.getPredicate().split(IDENTIFIER_SEPARATOR)) {
+			if (t.equals(record.getSelfName())) {
+				return "\u2200"+record.getSelfName()+"\u00b7"+record.getSelfName()+"\u2208"+record.getName()+" \u21d2 ("+constraint.getPredicate()+")";				
+			}
+		}
+		return constraint.getPredicate();
 	}
 	
 }
