@@ -68,7 +68,7 @@ public class FieldRuleContext extends AbstractFieldRule implements IRule {
 	   
 	    //generate an axiom to declare the type of the constant representing the field   
  	    Axiom axiom = Make.axiom(
- 	    		"axm_"+ record.getName() + "_" + field.getName(),
+ 	    		"typeof_"+ record.getName() + "_" + field.getName(),
  	    		false,
  	    		field.getName() + " \u2208 " + record.getName() + getRelationSymbol(field) + field.getType(),
  	    		"generated for record field"); 

@@ -66,10 +66,10 @@ public class FieldRuleMachine extends AbstractFieldRule implements IRule {
     	ret.add(Make.descriptor(machine, variables, fieldVariable, 0));
 	   
     	//if the field's type is set, generate an invariant to declare the type of the variable representing the field
-    	// (Note that a fields type may be left unset when it a retained field in a refined class)
+    	// (Note that a fields type may be left unset when it is a retained field in a refined class)
     	if (field.getType() != null && field.getType().trim().length()>0) { 
 	 	    Invariant invariant = Make.invariant(
-	 	    		"inv_"+ record.getName() + "_" + field.getName(),
+	 	    		"typeof_"+ record.getName() + "_" + field.getName(),
 	 	    		false,
 	 	    		field.getName() + " \u2208 " + record.getName() + getRelationSymbol(field) + field.getType(),
 	 	    		"generated for record field"); 
