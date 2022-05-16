@@ -50,7 +50,7 @@ import ac.soton.emf.translator.TranslatorFactory;
 public class TranslateAllRecordsEMFOperation extends AbstractEMFOperation {
 	
 	final static String PLUGIN_ID = "ac.soton.eventb.emf.record.generator";
-	final static String RECORD_GENERATOR_COMMAND_ID = "ac.soton.eventb.emf.record.generator.translateAllRecords"; //as in extension point for record translator
+	public final static String RECORD_GENERATOR_COMMAND_ID = "ac.soton.eventb.emf.record.generator.translateAllRecords"; //as in extension point for record translator
 	
 	final static String commandTitle = "Translate All Records";
 	final static String ValidationFailedMessage = "Translation cancelled because validation failed with the following errors : \n";
