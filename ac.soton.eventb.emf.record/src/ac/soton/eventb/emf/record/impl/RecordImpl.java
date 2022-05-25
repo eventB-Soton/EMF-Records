@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.CorePackage;
 
-import ac.soton.eventb.emf.core.extension.coreextension.impl.EventBNamedCommentedDataElaborationElementImpl;
+import org.eventb.emf.core.impl.EventBNamedCommentedElementImpl;
 import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Record;
@@ -51,7 +51,7 @@ import ac.soton.eventb.emf.record.RecordPackage;
  *
  * @generated
  */
-public class RecordImpl extends EventBNamedCommentedDataElaborationElementImpl implements Record {
+public class RecordImpl extends EventBNamedCommentedElementImpl implements Record {
 	/**
 	 * The default value of the '{@link #getExtensionId() <em>Extension Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

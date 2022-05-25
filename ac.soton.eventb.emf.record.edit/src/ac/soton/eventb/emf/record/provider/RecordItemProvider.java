@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -13,8 +13,6 @@
  *******************************************************************************/
 package ac.soton.eventb.emf.record.provider;
 
-
-import ac.soton.eventb.emf.core.extension.coreextension.provider.EventBNamedCommentedDataElaborationElementItemProvider;
 
 import ac.soton.eventb.emf.record.Record;
 import ac.soton.eventb.emf.record.RecordFactory;
@@ -40,6 +38,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eventb.emf.core.CorePackage;
+import org.eventb.emf.core.provider.EventBNamedCommentedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link ac.soton.eventb.emf.record.Record} object.
@@ -48,7 +47,7 @@ import org.eventb.emf.core.CorePackage;
  * @generated
  */
 public class RecordItemProvider
-	extends EventBNamedCommentedDataElaborationElementItemProvider
+	extends EventBNamedCommentedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -156,6 +155,7 @@ public class RecordItemProvider
 	/**
 	 * This adds a property descriptor for the Extended feature.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -178,6 +178,7 @@ public class RecordItemProvider
 	/**
 	 * This adds a property descriptor for the Refined feature.
 	 * <!-- begin-user-doc -->
+	 * @since 1.0
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -109,6 +109,7 @@ public class RecordTest extends TestCase {
 	/**
 	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getFields() <em>Fields</em>}' feature getter.
 	 * <!-- begin-user-doc -->
+	 * @since 0.2
 	 * <!-- end-user-doc -->
 	 * @see ac.soton.eventb.emf.record.Record#getFields()
 	 * @generated
@@ -122,6 +123,7 @@ public class RecordTest extends TestCase {
 	/**
 	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getConstraints() <em>Constraints</em>}' feature getter.
 	 * <!-- begin-user-doc -->
+	 * @since 0.2
 	 * <!-- end-user-doc -->
 	 * @see ac.soton.eventb.emf.record.Record#getConstraints()
 	 * @generated

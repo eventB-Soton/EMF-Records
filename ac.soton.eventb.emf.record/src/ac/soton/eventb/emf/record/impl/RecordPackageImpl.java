@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -319,18 +319,18 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CoreextensionPackage theCoreextensionPackage = (CoreextensionPackage)EPackage.Registry.INSTANCE.getEPackage(CoreextensionPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		CoreextensionPackage theCoreextensionPackage = (CoreextensionPackage)EPackage.Registry.INSTANCE.getEPackage(CoreextensionPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		recordEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		recordEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		recordEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
-		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		fieldEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getType());
 		constraintEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedDerivedPredicateElement());
 

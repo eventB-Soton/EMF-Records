@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -13,8 +13,8 @@
  *******************************************************************************/
 package ac.soton.eventb.emf.record;
 
-import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
 import ac.soton.eventb.emf.core.extension.coreextension.Type;
+import org.eventb.emf.core.EventBNamedCommentedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import ac.soton.eventb.emf.core.extension.coreextension.Type;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='fieldsHaveTypesUnlessRefined'"
  * @generated
  */
-public interface Field extends EventBNamedCommentedDataElaborationElement, Type {
+public interface Field extends EventBNamedCommentedElement, Type {
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
 	 * The default value is <code>"ONE"</code>.

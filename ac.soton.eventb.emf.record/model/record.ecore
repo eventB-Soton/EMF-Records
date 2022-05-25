@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="record" nsURI="http://soton.ac.uk/models/eventb/record/2022"
     nsPrefix="record">
-  <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBNamedCommentedDataElaborationElement ../../org.eventb.emf.core/model/eventbcore.ecore#//AbstractExtension">
+  <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement ../../org.eventb.emf.core/model/eventbcore.ecore#//AbstractExtension">
     <eAnnotations source="org.eventb.emf.core.extendedMetaClasses" references="../../org.eventb.emf.core/model/eventbcore.ecore#//machine/Machine ../../org.eventb.emf.core/model/eventbcore.ecore#//context/Context"/>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="mustHaveAName exclusive_extendsRefinesInherits refinedOnlyInMachines noNewRecordsInMachines"/>
@@ -20,7 +20,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extended" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="refined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//EventBNamedCommentedDataElaborationElement ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="../../org.eventb.emf.core/model/eventbcore.ecore#//EventBNamedCommentedElement ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.ecore#//Type">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="fieldsHaveTypesUnlessRefined"/>
     </eAnnotations>

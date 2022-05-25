@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020, 2021 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -12,9 +12,6 @@
  *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.util;
-
-import ac.soton.eventb.emf.core.extension.coreextension.EventBDataElaboration;
-import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
 
 import ac.soton.eventb.emf.core.extension.coreextension.Type;
 import ac.soton.eventb.emf.record.*;
@@ -114,10 +111,8 @@ public class RecordSwitch<T> {
 			case RecordPackage.RECORD: {
 				Record record = (Record)theEObject;
 				T result = caseRecord(record);
-				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(record);
-				if (result == null) result = caseAbstractExtension(record);
 				if (result == null) result = caseEventBNamedCommentedElement(record);
-				if (result == null) result = caseEventBDataElaboration(record);
+				if (result == null) result = caseAbstractExtension(record);
 				if (result == null) result = caseEventBCommentedElement(record);
 				if (result == null) result = caseEventBNamed(record);
 				if (result == null) result = caseEventBElement(record);
@@ -129,10 +124,8 @@ public class RecordSwitch<T> {
 			case RecordPackage.FIELD: {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
-				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(field);
-				if (result == null) result = caseType(field);
 				if (result == null) result = caseEventBNamedCommentedElement(field);
-				if (result == null) result = caseEventBDataElaboration(field);
+				if (result == null) result = caseType(field);
 				if (result == null) result = caseEventBCommentedElement(field);
 				if (result == null) result = caseEventBNamed(field);
 				if (result == null) result = caseEventBElement(field);
@@ -294,36 +287,6 @@ public class RecordSwitch<T> {
 	 * @generated
 	 */
 	public T caseEventBNamedCommentedElement(EventBNamedCommentedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event BData Elaboration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event BData Elaboration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventBDataElaboration(EventBDataElaboration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event BNamed Commented Data Elaboration Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event BNamed Commented Data Elaboration Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventBNamedCommentedDataElaborationElement(EventBNamedCommentedDataElaborationElement object) {
 		return null;
 	}
 
