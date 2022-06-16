@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="[3.106.1,4.0.0)",
  org.eventb.emf.persistence;bundle-version="[3.4.1,4.0.0)",
  org.eventb.emf.persistence.tests;bundle-version="[0.0.1,1.0.0)",
  ac.soton.eventb.emf.core.extension;bundle-version="[6.0.0,7.0.0)",
- ac.soton.emf.translator;bundle-version="[3.0.0,4.0.0)",
+ ac.soton.emf.translator;bundle-version="[4.0.0,5.0.0)",
  ac.soton.eventb.emf.record;bundle-version="1.0.0",
  ac.soton.eventb.emf.record.generator;bundle-version="0.2.0"
 Automatic-Module-Name: ac.soton.eventb.emf.record.generator.tests
