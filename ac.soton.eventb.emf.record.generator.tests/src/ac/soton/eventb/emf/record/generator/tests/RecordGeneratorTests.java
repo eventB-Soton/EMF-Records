@@ -191,6 +191,89 @@ public class RecordGeneratorTests extends AbstractEventBEMFTests {
 			failUnexpectedException(e);
 		}
 	}
+	
+	/**
+	 * Test the order of the generated elements in the orderedChildren of the context
+	 * The record has three records each with 3 fields. 
+	 * The second record inherits from the first one
+	 * The third record inherits from the second and has two extra constraints.
+	 * We expect a set for the first record, constants for each record and field, axioms for the typing of each record 
+	 * and each field plus axioms for the two constraints.
+	 * 
+	 * The ordering is checked in the orderedChildren containment. We expect the generated elements to be placed before the
+	 * record they have been generated from and for each record, the set/constant for the record followed by its type invariant
+	 *  followed by a variable and type invariant for each field, followed by the extra constraint invariants
+	 */
+	@Test
+	public void testOrderOfChildrenInContext() {
+		try {
+			//set up the test
+			Record r1 = createTestRecord("R1","F1","F2","F3");
+			x0.getOrderedChildren().add(r1);
+			Record r2 = createTestRecord("R2","F4","F5","F6");
+			r2.getInheritsNames().add("R1");
+			x0.getOrderedChildren().add(r2);
+			Record r3 = createTestRecord("R3","F7", "F8", "F9");
+			addConstraintToRecord(r3,"constraint10","F7(this) = F4(this)", false);
+			addConstraintToRecord(r3,"constraint11","F8(this) = F5(this)", true);
+			r3.setSelfName("this");
+			r3.getInheritsNames().add("R2");
+			x0.getOrderedChildren().add(r3);
+			
+			translate(x0);
+			//check the results
+			testContextCarrierSets("Incorrect sets", x0, "R1");
+			testContextConstants("Incorrect constants", x0, "F1", "F2", "F3", "R2", "F4", "F5","F6", "R3", "F7", "F8", "F9"); 
+			testContextAxioms("Incorrect axioms",x0,
+					"typeof_R1_F1:F1 ∈ R1 ↔ BOOL:false",
+					"typeof_R1_F2:F2 ∈ R1 → BOOL:false",
+					"typeof_R1_F3:F3 ∈ R1 ⇸ BOOL:false",
+					"typeof_R2:R2 ⊆ R1:false",
+					"typeof_R2_F4:F4 ∈ R2 ↔ BOOL:false",
+					"typeof_R2_F5:F5 ∈ R2 → BOOL:false",
+					"typeof_R2_F6:F6 ∈ R2 ⇸ BOOL:false",
+					"typeof_R3:R3 ⊆ R2:false",
+					"typeof_R3_F7:F7 ∈ R3 ↔ BOOL:false",
+					"typeof_R3_F8:F8 ∈ R3 → BOOL:false",
+					"typeof_R3_F9:F9 ∈ R3 ⇸ BOOL:false",
+					"constraint10:∀this·this∈R3 ⇒ (F7(this) = F4(this)):false",
+					"constraint11:∀this·this∈R3 ⇒ (F8(this) = F5(this)):true"
+				);
+			testOrderedChildren("Incorrect order of generated elements", x0,
+					"CarrierSet:R1",
+					"Constant:F1",
+					"Axiom:typeof_R1_F1",
+					"Constant:F2",
+					"Axiom:typeof_R1_F2",
+					"Constant:F3",
+					"Axiom:typeof_R1_F3",
+					"Record:R1",					
+					"Constant:R2", 
+					"Axiom:typeof_R2",
+					"Constant:F4",
+					"Axiom:typeof_R2_F4",
+					"Constant:F5",
+					"Axiom:typeof_R2_F5",
+					"Constant:F6",
+					"Axiom:typeof_R2_F6",
+					"Record:R2",
+					"Constant:R3",
+					"Axiom:typeof_R3",
+					"Constant:F7",
+					"Axiom:typeof_R3_F7",
+					"Constant:F8",
+					"Axiom:typeof_R3_F8",
+					"Constant:F9",
+					"Axiom:typeof_R3_F9",
+					"Axiom:constraint10",
+					"Axiom:constraint11",
+					"Record:R3"
+					);
+			
+		} catch (ExecutionException e) {
+			failUnexpectedException(e);
+		}
+	}
 
 	//////////////////////////Records in a MACHINE//////////////////////////
 	/**
@@ -319,6 +402,81 @@ public class RecordGeneratorTests extends AbstractEventBEMFTests {
 		}
 	}
 	
+
+	
+	/**
+	 * Test the order of the generated elements in the orderedChildren of the machine
+	 * The record has two records each with 3 fields. 
+	 * The first record inherits from one in a context and the 
+	 * second record inherits from the first and has two extra constraints.
+	 * We expect variables for each record and field, invariants for the typing of each record 
+	 * and each field plus invariants for the two constraints.
+	 * 
+	 * The ordering is checked in the orderedChildren containment. We expect the generated elements to be placed before the
+	 * record they have been generated from and for each record, the variable for the record followed by its type invariant
+	 *  followed by a variable and type invariant for each field, followed by the extra constraint invariants
+	 */
+	@Test
+	public void testOrderOfChildrenInMachine() {
+		try {
+			//set up the test
+			Record r1 = createTestRecord("R1","F1","F2","F3");
+			x0.getOrderedChildren().add(r1);
+			Record r2 = createTestRecord("R2","F4","F5","F6");
+			r2.getInheritsNames().add("R1");
+			m0.getOrderedChildren().add(r2);
+			Record r3 = createTestRecord("R3","F7", "F8", "F9");
+			addConstraintToRecord(r3,"constraint10","F7(this) = F4(this)", false);
+			addConstraintToRecord(r3,"constraint11","F8(this) = F5(this)", true);
+			r3.setSelfName("this");
+			r3.getInheritsNames().add("R2");
+			m0.getOrderedChildren().add(r3);
+			
+			translate(m0);
+			//check the results
+			testMachineVariables("Incorrect variables", m0, "R2", "F4", "F5","F6", "R3", "F7", "F8", "F9"); 
+			testMachineInvariants("Incorrect invariants",m0,
+					"typeof_R2:R2 ⊆ R1:false",
+					"typeof_R2_F4:F4 ∈ R2 ↔ BOOL:false",
+					"typeof_R2_F5:F5 ∈ R2 → BOOL:false",
+					"typeof_R2_F6:F6 ∈ R2 ⇸ BOOL:false",
+					"typeof_R3:R3 ⊆ R2:false",
+					"typeof_R3_F7:F7 ∈ R3 ↔ BOOL:false",
+					"typeof_R3_F8:F8 ∈ R3 → BOOL:false",
+					"typeof_R3_F9:F9 ∈ R3 ⇸ BOOL:false",
+					"constraint10:∀this·this∈R3 ⇒ (F7(this) = F4(this)):false",
+					"constraint11:∀this·this∈R3 ⇒ (F8(this) = F5(this)):true"
+				);
+			testOrderedChildren("Incorrect order of generated elements", m0,
+					"Variable:R2", 
+					"Invariant:typeof_R2",
+					"Variable:F4",
+					"Invariant:typeof_R2_F4",
+					"Variable:F5",
+					"Invariant:typeof_R2_F5",
+					"Variable:F6",
+					"Invariant:typeof_R2_F6",
+					"Record:R2",
+					"Variable:R3",
+					"Invariant:typeof_R3",
+					"Variable:F7",
+					"Invariant:typeof_R3_F7",
+					"Variable:F8",
+					"Invariant:typeof_R3_F8",
+					"Variable:F9",
+					"Invariant:typeof_R3_F9",
+					"Invariant:constraint10",
+					"Invariant:constraint11",
+					"Record:R3"
+					);
+			
+		} catch (ExecutionException e) {
+			failUnexpectedException(e);
+		}
+	}
+	
+
+
 	/////////////////////////////utility methods used in the tests ///////////////////////////
 	/**
 	 * 
