@@ -17,14 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.context.Axiom;
 import org.eventb.emf.core.context.Context;
 import org.eventb.emf.core.context.ContextPackage;
 
 import ac.soton.emf.translator.TranslationDescriptor;
-import ac.soton.emf.translator.configuration.AbstractRule;
 import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Record;
@@ -38,8 +37,7 @@ import ac.soton.eventb.emf.record.RecordPackage;
  * @author asiehsalehi, cfs
  *
  */
-public class ConstraintRuleContext extends AbstractRule implements IRule {
-	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
+public class ConstraintRuleContext extends AbstractEventBGeneratorRule implements IRule {
 	private static final String IDENTIFIER_SEPARATOR = "\\W+";
 
 	@Override
@@ -56,7 +54,7 @@ public class ConstraintRuleContext extends AbstractRule implements IRule {
     			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
-    	ret.add(Make.descriptor(context, axioms, recordAxiom, 0));
+    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, sourceElement, 0));
 	    
 	    return ret;	
 	}

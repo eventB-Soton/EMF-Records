@@ -17,14 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.machine.Invariant;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 
 import ac.soton.emf.translator.TranslationDescriptor;
-import ac.soton.emf.translator.configuration.AbstractRule;
 import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Record;
@@ -38,8 +37,7 @@ import ac.soton.eventb.emf.record.RecordPackage;
  * @author cfs
  *
  */
-public class ConstraintRuleMachine extends AbstractRule implements IRule {
-	protected static final EReference invariants = MachinePackage.Literals.MACHINE__INVARIANTS;
+public class ConstraintRuleMachine extends AbstractEventBGeneratorRule implements IRule {
 	private static final String IDENTIFIER_SEPARATOR = "\\W+";
 
 	@Override
@@ -63,7 +61,7 @@ public class ConstraintRuleMachine extends AbstractRule implements IRule {
     			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
-    	ret.add(Make.descriptor(machine, invariants, invariant, 0));
+    	ret.add(Make.descriptor(machine, orderedChildren, invariant, sourceElement, 0));
 	    
 	    return ret;	
 	}

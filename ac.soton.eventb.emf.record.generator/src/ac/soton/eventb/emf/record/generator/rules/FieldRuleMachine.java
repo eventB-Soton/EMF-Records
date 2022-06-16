@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.machine.Invariant;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -39,8 +38,6 @@ import ac.soton.eventb.emf.record.RecordPackage;
  *
  */
 public class FieldRuleMachine extends AbstractFieldRule implements IRule {
-	protected static final EReference variables = MachinePackage.Literals.MACHINE__VARIABLES;
-	protected static final EReference invariants = MachinePackage.Literals.MACHINE__INVARIANTS;
 
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
@@ -63,7 +60,7 @@ public class FieldRuleMachine extends AbstractFieldRule implements IRule {
 	
 	    //generate a variable for the field
  	    Variable fieldVariable = (Variable) Make.variable(field.getName(), "generated for record field");
-    	ret.add(Make.descriptor(machine, variables, fieldVariable, 0));
+    	ret.add(Make.descriptor(machine, orderedChildren, fieldVariable, record, 0));
 	   
     	//if the field's type is set, generate an invariant to declare the type of the variable representing the field
     	// (Note that a fields type may be left unset when it is a retained field in a refined class)
@@ -73,7 +70,7 @@ public class FieldRuleMachine extends AbstractFieldRule implements IRule {
 	 	    		false,
 	 	    		field.getName() + " \u2208 " + record.getName() + getRelationSymbol(field) + field.getType(),
 	 	    		"generated for record field"); 
-	 	    ret.add(Make.descriptor(machine, invariants, invariant, 0));
+	 	    ret.add(Make.descriptor(machine, orderedChildren, invariant, record, 0));
     	}
 	    
 		return ret;		

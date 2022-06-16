@@ -17,15 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.machine.Invariant;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
 import org.eventb.emf.core.machine.Variable;
 
 import ac.soton.emf.translator.TranslationDescriptor;
-import ac.soton.emf.translator.configuration.AbstractRule;
 import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Record;
 
@@ -38,9 +37,7 @@ import ac.soton.eventb.emf.record.Record;
  * @author asiehsalehi, cfs
  * 
  */
-public class RecordRuleMachine extends AbstractRule implements IRule {
-	protected static final EReference variables = MachinePackage.Literals.MACHINE__VARIABLES;
-	protected static final EReference invariants = MachinePackage.Literals.MACHINE__INVARIANTS;
+public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IRule {
 	
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
@@ -64,12 +61,12 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
     	if (record.isRefined())  {
         	//if the record refines another record, we need to repeat the abstract variable (but no invariant is needed)
 	    	Variable recordVariable = Make.variable(record.getName(), "generated for refined record");
-	    	ret.add(Make.descriptor(machine, variables, recordVariable, 0));
+	    	ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
 	    	
     	}else  {
       		 //generate a variable for a new record 
 		    Variable recordVariable = Make.variable(record.getName(), "generated for inheriting record");
-		    ret.add(Make.descriptor(machine, variables, recordVariable, 0));
+		    ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
     		if (record.getInheritsNames().size() >0) {
     			//if the new record inherits, generate an invariant to subset the inherited record 
     			//(it should inherit in a machine, if not we leave it to cause a Rodin error)
@@ -78,7 +75,7 @@ public class RecordRuleMachine extends AbstractRule implements IRule {
 		    			false, 
 		    			record.getName() + " \u2286 " + record.getInheritsNames().get(0),
 		    			"generated for inheriting record");
-		    	ret.add(Make.descriptor(machine, invariants, recordInvariant, 0));
+		    	ret.add(Make.descriptor(machine, orderedChildren, recordInvariant, sourceElement, 0));
 		    } 
     	}
 		return ret;	

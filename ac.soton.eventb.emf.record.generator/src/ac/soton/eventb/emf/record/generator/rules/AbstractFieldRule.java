@@ -13,7 +13,7 @@
  *******************************************************************************/
 package ac.soton.eventb.emf.record.generator.rules;
 
-import ac.soton.emf.translator.configuration.AbstractRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.eventb.emf.record.Field;
 
 /**
@@ -22,7 +22,7 @@ import ac.soton.eventb.emf.record.Field;
  * @author cfs
  *
  */
-public abstract class AbstractFieldRule extends AbstractRule {
+public abstract class AbstractFieldRule extends AbstractEventBGeneratorRule {
 
 	/**
 	 * Returns the Event-B unicode symbol to use as the relation kind 
@@ -44,5 +44,5 @@ public abstract class AbstractFieldRule extends AbstractRule {
 			throw new Exception(
 					"Unrecognized multiplicity setting in Field "+field.getName());
 	}
-
+	
 }

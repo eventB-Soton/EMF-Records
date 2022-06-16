@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.context.Axiom;
 import org.eventb.emf.core.context. CarrierSet;
 import org.eventb.emf.core.context.Constant;
@@ -26,8 +24,8 @@ import org.eventb.emf.core.context.Context;
 import org.eventb.emf.core.context.ContextPackage;
 
 import ac.soton.emf.translator.TranslationDescriptor;
-import ac.soton.emf.translator.configuration.AbstractRule;
 import ac.soton.emf.translator.configuration.IRule;
+import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Record;
 
@@ -39,11 +37,7 @@ import ac.soton.eventb.emf.record.Record;
  * @author asiehsalehi, cfs
  * 
  */
-public class RecordRuleContext extends AbstractRule implements IRule {
-	protected static final EReference components = CorePackage.Literals.PROJECT__COMPONENTS;
-	protected static final EReference sets = ContextPackage.Literals.CONTEXT__SETS;
-	protected static final EReference constants = ContextPackage.Literals.CONTEXT__CONSTANTS;
-	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
+public class RecordRuleContext extends AbstractEventBGeneratorRule implements IRule {
 	
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
@@ -66,17 +60,17 @@ public class RecordRuleContext extends AbstractRule implements IRule {
 		    if (record.getInheritsNames().size()==0) {
 			    //generate a carrier set for a new record that does not inherit
 		    	CarrierSet recordSet = (CarrierSet) Make.set(record.getName() , "generated for new record");
-		    	ret.add(Make.descriptor(context, sets, recordSet, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordSet, record, 0));
 		    }else {
 			    //generate a constant and axiom for a new record that inherits (i.e. is a subset of) another
 		    	
 		    	Constant recordConstant = (Constant) Make.constant(record.getName(), "generated for inheriting record");
-		    	ret.add(Make.descriptor(context, constants, recordConstant, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordConstant, record, 0));
 		    	
 		    	Axiom recordAxiom = Make.axiom("typeof_"+record.getName(), false,
 		    						record.getName() + " \u2286 " + record.getInheritsNames().get(0),
 		    						"generated for inheriting record");
-		    	ret.add(Make.descriptor(context, axioms, recordAxiom, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, record, 0));
 		    }
 	    }
 	

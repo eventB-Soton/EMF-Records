@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eventb.emf.core.context.Axiom;
 import org.eventb.emf.core.context.Constant;
 import org.eventb.emf.core.context.Context;
@@ -39,9 +38,6 @@ import ac.soton.eventb.emf.record.RecordPackage;
  *
  */
 public class FieldRuleContext extends AbstractFieldRule implements IRule {
-	protected static final EReference sets = ContextPackage.Literals.CONTEXT__SETS;
-	protected static final EReference constants = ContextPackage.Literals.CONTEXT__CONSTANTS;
-	protected static final EReference axioms = ContextPackage.Literals.CONTEXT__AXIOMS;
 
 	@Override
 	public boolean enabled(final EObject sourceElement) throws Exception  {
@@ -64,7 +60,7 @@ public class FieldRuleContext extends AbstractFieldRule implements IRule {
 	
 	    //generate a constant for the field
  	    Constant fieldConstant = (Constant) Make.constant(field.getName(), "generated for record field");
-    	ret.add(Make.descriptor(context, constants, fieldConstant, 0));
+    	ret.add(Make.descriptor(context, orderedChildren, fieldConstant, record, 0));
 	   
 	    //generate an axiom to declare the type of the constant representing the field   
  	    Axiom axiom = Make.axiom(
@@ -72,7 +68,7 @@ public class FieldRuleContext extends AbstractFieldRule implements IRule {
  	    		false,
  	    		field.getName() + " \u2208 " + record.getName() + getRelationSymbol(field) + field.getType(),
  	    		"generated for record field"); 
- 	    ret.add(Make.descriptor(context, axioms, axiom, 0));
+ 	    ret.add(Make.descriptor(context, orderedChildren, axiom, record, 0));
 	    
 		return ret;		
 	}
