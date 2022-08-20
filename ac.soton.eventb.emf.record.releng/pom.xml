@@ -1,5 +1,5 @@
 <!--
-    Copyright (c) 2020, 2021 University of Southampton.
+    Copyright (c) 2020, 2022 University of Southampton.
    
     This program and the accompanying materials
     are made available under the terms of the Eclipse Public License 2.0
@@ -31,8 +31,8 @@
     <eclipse_updates-repo.url>http://download.eclipse.org/eclipse/updates/4.16/</eclipse_updates-repo.url>
     <!-- URL for Eclipse Releases repository (2020-06) -->
     <eclipse_releases-repo.url>http://download.eclipse.org/releases/2020-06</eclipse_releases-repo.url>
-    <!-- URL for Rodin Platform (3.5) -->
-    <rodin-repo.url>http://rodin-b-sharp.sourceforge.net/core-updates/3.5</rodin-repo.url>
+    <!-- URL for Rodin Platform  -->
+    <rodin-repo.url>http://rodin-b-sharp.sourceforge.net/core-updates/3.7</rodin-repo.url>
     <!-- OPTIONAL Additional URLs -->
     <!-- URL for the Soton Update site -->
     <soton-repo.url>http://eventb-soton.github.io/updateSite</soton-repo.url>
