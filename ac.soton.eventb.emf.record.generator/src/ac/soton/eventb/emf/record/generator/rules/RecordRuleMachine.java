@@ -45,39 +45,33 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 		if	(!(sourceElement instanceof Record)) return false;
 		Record record = (Record)sourceElement;
 		if (record.getContaining(MachinePackage.Literals.MACHINE)==null) return false;
-		if (record.isExtended()) return false;
-		if (record.getInheritsNames()==null && !(record.isRefined())) return false;
-		return true;	
+		if (record.getInheritsNames()==null && !(record.isRefined())  && !record.isExtended()) return false;
+		return true;
 	}
 	
 	@Override
 	public List<TranslationDescriptor> fire(EObject sourceElement, List<TranslationDescriptor> translatedElements) throws Exception {	
 		List<TranslationDescriptor> ret = new ArrayList<TranslationDescriptor>();
-		
 	    Record 	record = (Record)sourceElement;
-		if (record.isExtended()) return ret; //should not get here if extended
 	    Machine machine = (Machine)record.getContaining(MachinePackage.Literals.MACHINE); 
-
-    	if (record.isRefined())  {
-        	//if the record refines another record, we need to repeat the abstract variable (but no invariant is needed)
-	    	Variable recordVariable = Make.variable(record.getName(), "generated for refined record");
-	    	ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
-	    	
-    	}else  {
-      		 //generate a variable for a new record 
-		    Variable recordVariable = Make.variable(record.getName(), "generated for inheriting record");
-		    ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
-    		if (record.getInheritsNames().size() >0) {
-    			//if the new record inherits, generate an invariant to subset the inherited record 
-    			//(it should inherit in a machine, if not we leave it to cause a Rodin error)
-		    	Invariant recordInvariant = Make.invariant(
-		    			"typeof_" + record.getName(), 
-		    			false, 
-		    			record.getName() + " \u2286 " + record.getInheritsNames().get(0),
-		    			"generated for inheriting record");
-		    	ret.add(Make.descriptor(machine, orderedChildren, recordInvariant, sourceElement, 0));
-		    } 
-    	}
+	    
+    	//For all cases we need to generate a variable for the record instances.
+	    //If the record refines or extends another record, we need to repeat the abstract variable (but no invariant is needed)
+	    //If the record inherits we need a new variable with a ttype invariant
+	    
+    	Variable recordVariable = Make.variable(record.getName(), "generated for record");
+    	ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
+    
+		if (record.getInheritsNames().size() >0 && !record.isExtended() && !record.isRefined()) {
+			//if the new record inherits, generate an invariant to subset the inherited record 
+			//(it should inherit in a machine, if not we leave it to cause a Rodin error)
+	    	Invariant recordInvariant = Make.invariant(
+	    			"typeof_" + record.getName(), 
+	    			false, 
+	    			record.getName() + " \u2286 " + record.getInheritsNames().get(0),
+	    			"generated for inheriting record");
+	    	ret.add(Make.descriptor(machine, orderedChildren, recordInvariant, sourceElement, 0));
+	    } 
 		return ret;	
 	}
 
