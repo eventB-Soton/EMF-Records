@@ -133,14 +133,16 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		// Initialize created meta-data
 		theRecordPackage.initializePackageContents();
 
+//FIXME XText is causing a problem with validation 
+		
 		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theRecordPackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return RecordValidator.INSTANCE;
-				 }
-			 });
+//		EValidator.Registry.INSTANCE.put
+//			(theRecordPackage, 
+//			 new EValidator.Descriptor() {
+//				 public EValidator getEValidator() {
+//					 return RecordValidator.INSTANCE;
+//				 }
+//			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theRecordPackage.freeze();
