@@ -301,7 +301,7 @@ public class RecordGeneratorTests extends AbstractEventBEMFTests {
 			m0.getOrderedChildren().add(r1e);
 			translate(m0);
 			//check the results
-			testMachineVariables("Incorrect variables", m0, "F4", "F5", "F6");
+			testMachineVariables("Incorrect variables", m0, "R1", "F4", "F5", "F6");
 			testMachineInvariants("Incorrect axioms",m0, 
 				"typeof_R1_F4:F4 ∈ R1 ↔ BOOL:false",
 				"typeof_R1_F5:F5 ∈ R1 → BOOL:false",
