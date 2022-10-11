@@ -60,7 +60,7 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 	    //If the record inherits we need a new variable with a ttype invariant
 	    
     	Variable recordVariable = Make.variable(record.getName(), "generated for record");
-    	ret.add(Make.descriptor(machine, orderedChildren, recordVariable, sourceElement, 0));
+    	ret.add(Make.descriptor(machine, orderedChildren, recordVariable, record, 0, sourceElement));
     
 		if (record.getInheritsNames().size() >0 && !record.isExtended() && !record.isRefined()) {
 			//if the new record inherits, generate an invariant to subset the inherited record 
@@ -70,7 +70,7 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 	    			false, 
 	    			record.getName() + " \u2286 " + record.getInheritsNames().get(0),
 	    			"generated for inheriting record");
-	    	ret.add(Make.descriptor(machine, orderedChildren, recordInvariant, sourceElement, 0));
+	    	ret.add(Make.descriptor(machine, orderedChildren, recordInvariant, record, 0, sourceElement));
 	    } 
 		return ret;	
 	}

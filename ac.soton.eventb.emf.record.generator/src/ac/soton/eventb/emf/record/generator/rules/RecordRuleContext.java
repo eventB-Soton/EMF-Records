@@ -60,17 +60,17 @@ public class RecordRuleContext extends AbstractEventBGeneratorRule implements IR
 		    if (record.getInheritsNames().size()==0) {
 			    //generate a carrier set for a new record that does not inherit
 		    	CarrierSet recordSet = (CarrierSet) Make.set(record.getName() , "generated for new record");
-		    	ret.add(Make.descriptor(context, orderedChildren, recordSet, record, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordSet, record, 0, sourceElement));
 		    }else {
 			    //generate a constant and axiom for a new record that inherits (i.e. is a subset of) another
 		    	
 		    	Constant recordConstant = (Constant) Make.constant(record.getName(), "generated for inheriting record");
-		    	ret.add(Make.descriptor(context, orderedChildren, recordConstant, record, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordConstant, record, 0, sourceElement));
 		    	
 		    	Axiom recordAxiom = Make.axiom("typeof_"+record.getName(), false,
 		    						record.getName() + " \u2286 " + record.getInheritsNames().get(0),
 		    						"generated for inheriting record");
-		    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, record, 0));
+		    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, record, 0, sourceElement));
 		    }
 	    }
 	

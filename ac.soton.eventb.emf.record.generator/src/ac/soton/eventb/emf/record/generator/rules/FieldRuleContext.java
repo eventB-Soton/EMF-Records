@@ -60,7 +60,7 @@ public class FieldRuleContext extends AbstractFieldRule implements IRule {
 	
 	    //generate a constant for the field
  	    Constant fieldConstant = (Constant) Make.constant(field.getName(), "generated for record field");
-    	ret.add(Make.descriptor(context, orderedChildren, fieldConstant, record, 0));
+    	ret.add(Make.descriptor(context, orderedChildren, fieldConstant, record, 0, sourceElement));
 	   
 	    //generate an axiom to declare the type of the constant representing the field   
  	    Axiom axiom = Make.axiom(
@@ -68,7 +68,7 @@ public class FieldRuleContext extends AbstractFieldRule implements IRule {
  	    		false,
  	    		field.getName() + " \u2208 " + record.getName() + getRelationSymbol(field) + field.getType(),
  	    		"generated for record field"); 
- 	    ret.add(Make.descriptor(context, orderedChildren, axiom, record, 0));
+ 	    ret.add(Make.descriptor(context, orderedChildren, axiom, record, 0, sourceElement));
 	    
 		return ret;		
 	}

@@ -61,7 +61,7 @@ public class ConstraintRuleMachine extends AbstractEventBGeneratorRule implement
     			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
-    	ret.add(Make.descriptor(machine, orderedChildren, invariant, sourceElement, 0));
+    	ret.add(Make.descriptor(machine, orderedChildren, invariant, record, 0, sourceElement));
 	    
 	    return ret;	
 	}

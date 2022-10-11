@@ -54,7 +54,7 @@ public class ConstraintRuleContext extends AbstractEventBGeneratorRule implement
     			constraint.isTheorem(),
 				quantify(constraint,record),
 				"generated for record constraint");
-    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, sourceElement, 0));
+    	ret.add(Make.descriptor(context, orderedChildren, recordAxiom, record, 0, sourceElement));
 	    
 	    return ret;	
 	}
