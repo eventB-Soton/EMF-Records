@@ -18,7 +18,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -63,18 +62,11 @@ public class TranslateAllRecordsEMFOperation extends AbstractEMFOperation {
 	public TranslateAllRecordsEMFOperation(TransactionalEditingDomain editingDomain, EventBElement sourceElement) {
 		super(editingDomain, commandTitle, null);
 		setOptions(Collections.singletonMap(Transaction.OPTION_UNPROTECTED, Boolean.TRUE));
-		try {
-			//get the translator factory
-			factory = TranslatorFactory.getFactory();
-			//get the Event-B component to be translated 
-			final EventBNamedCommentedComponentElement root = (EventBNamedCommentedComponentElement) sourceElement.getContaining(CorePackage.Literals.EVENT_BNAMED_COMMENTED_COMPONENT_ELEMENT);
-			generateList.add(root);
-			report = commandTitle+" in "+root.getName() ;
-		} catch (CoreException e) {
-			factory = null;
-			generateList = null;
-			e.printStackTrace();
-		}
+		factory = TranslatorFactory.getFactory();
+		//get the Event-B component to be translated §
+		final EventBNamedCommentedComponentElement root = (EventBNamedCommentedComponentElement) sourceElement.getContaining(CorePackage.Literals.EVENT_BNAMED_COMMENTED_COMPONENT_ELEMENT);
+		generateList.add(root);
+		report = commandTitle+" in "+root.getName() ;
 	}
 	
 	@Override
