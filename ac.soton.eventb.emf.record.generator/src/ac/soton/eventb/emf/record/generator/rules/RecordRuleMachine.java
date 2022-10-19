@@ -30,7 +30,6 @@ import ac.soton.emf.translator.eventb.rules.AbstractEventBGeneratorRule;
 import ac.soton.emf.translator.eventb.utils.Make;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Record;
-import ac.soton.eventb.emf.record.RecordPackage;
 
 /**
  * <p>
@@ -71,8 +70,7 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 		ret.add(Make.descriptor(machine, orderedChildren, recordVariable, record, 0, sourceElement));
 
 		if (record.getInheritsNames().size() > 0 && !record.isExtended() && !record.isRefined()) {
-			// if the new record inherits, generate an invariant to subset the inherited
-			// record
+			// if the new record inherits, generate an invariant to subset the inherited record
 			// (it should inherit in a machine, if not we leave it to cause a Rodin error)
 			Invariant recordInvariant = Make.invariant("typeof_" + record.getName(), false,
 					record.getName() + " \u2286 " + record.getInheritsNames().get(0),
@@ -82,9 +80,6 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 			// Need to find the abstract record (recursively)
 			List<Field> abstractFields = getAbstractFields(record);
 			for (Field abstractField : abstractFields) {
-				// @FIXME htson => cfs why this can be null
-				if (abstractField == null)
-					continue;
 				Variable fieldVariable = Make.variable(abstractField.getName(), "generated for extended record");
 				ret.add(Make.descriptor(machine, orderedChildren, fieldVariable, record, 0, sourceElement));
 			}
@@ -111,18 +106,12 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 
 		EList<AbstractExtension> extensions = abstractMachine.getExtensions();
 		for (AbstractExtension obj : extensions) {
-			// @FIXME htson => cfs why this can be null
-			if (obj == null)
-				continue;
 			if (obj instanceof Record) {
 				Record absRecord = (Record) obj;
 				if (name.equals(absRecord.getName())) {
 					// Add all fields of the abstract record to result
 					EList<Field> absFields = absRecord.getFields();
 					for (Field field : absFields) {
-						// @FIXME htson => cfs why this can be null
-						if (field == null)
-							continue;
 						result.add(field);
 					}
 					// Add all abstract fields of the abstract record recursively
