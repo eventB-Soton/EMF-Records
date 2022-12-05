@@ -19,6 +19,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.AbstractExtension;
+import org.eventb.emf.core.context.Context;
 import org.eventb.emf.core.machine.Invariant;
 import org.eventb.emf.core.machine.Machine;
 import org.eventb.emf.core.machine.MachinePackage;
@@ -65,12 +66,15 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 		// If the record refines or extends another record, we need to repeat the
 		// abstract variable (but no invariant is needed)
 		// If the record inherits we need a new variable with a type invariant
-
-		Variable recordVariable = Make.variable(record.getName(), "generated for record");
-		ret.add(Make.descriptor(machine, orderedChildren, recordVariable, record, 0, sourceElement));
-
+		// @htson (1/12/22): This is not true, record extends context record does not need
+		// variables. As a result isContextRecord check is added
+		if (!isContextRecord(machine, record.getName())) {
+			Variable recordVariable = Make.variable(record.getName(), "generated for record");
+			ret.add(Make.descriptor(machine, orderedChildren, recordVariable, record, 0, sourceElement));
+		}
 		if (record.getInheritsNames().size() > 0 && !record.isExtended() && !record.isRefined()) {
-			// if the new record inherits, generate an invariant to subset the inherited record
+			// if the new record inherits, generate an invariant to subset the inherited
+			// record
 			// (it should inherit in a machine, if not we leave it to cause a Rodin error)
 			Invariant recordInvariant = Make.invariant("typeof_" + record.getName(), false,
 					record.getName() + " \u2286 " + record.getInheritsNames().get(0),
@@ -87,6 +91,34 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 		return ret;
 	}
 
+	private boolean isContextRecord(Machine mch, String recordName) {
+		EList<Context> sees = mch.getSees();
+		for (Context see : sees) {
+			if (isContextRecord(see, recordName))
+				return true;
+		}
+		return false;
+	}
+
+	private boolean isContextRecord(Context ctx, String recordName) {
+		// Check the records in this context
+		EList<AbstractExtension> extensions = ctx.getExtensions();
+		for (AbstractExtension extension : extensions) {
+			if (extension instanceof Record) {
+				if (((Record) extension).getName().equals(recordName))
+					return true;
+			}
+		}
+		
+		// Check the record in all extended context
+		EList<Context> extendedCtxs = ctx.getExtends();
+		for (Context extendedCtx : extendedCtxs) {
+			if (isContextRecord(extendedCtx, recordName))
+				return true;
+		}
+		return false;
+	}
+
 	/*
 	 * Get the fields of the abstract record
 	 */
@@ -98,6 +130,10 @@ public class RecordRuleMachine extends AbstractEventBGeneratorRule implements IR
 		Machine machine = (Machine) record.getContaining(MachinePackage.Literals.MACHINE);
 		// Get the abstract machine
 		EList<Machine> refines = machine.getRefines();
+		// This is the case where the record extends record in context?
+		if (refines.size() == 0)
+			return result;
+
 		assert refines.size() >= 1;
 		Machine abstractMachine = refines.get(0);
 
