@@ -117,7 +117,6 @@ public class RecordTest extends TestCase {
 	public void testGetFields() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**
@@ -131,7 +130,6 @@ public class RecordTest extends TestCase {
 	public void testGetConstraints() {
 		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	@Test

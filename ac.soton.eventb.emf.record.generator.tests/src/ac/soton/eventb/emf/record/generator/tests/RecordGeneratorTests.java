@@ -69,6 +69,7 @@ public class RecordGeneratorTests extends AbstractEventBEMFTests {
 		m1 = EventBEMFUtils.createMachine(emfRodinDB, prj, "m1");
 		//m1_init = EventBEMFUtils.createEvent(domain, m1, IEvent.INITIALISATION);
 		m1.getSeesNames().add("x1");
+		m1.getRefinesNames().add("m0");
 	}
 
 	//////////////////////////Records in a CONTEXT//////////////////////////
@@ -298,11 +299,12 @@ public class RecordGeneratorTests extends AbstractEventBEMFTests {
 			addConstraintToRecord(r1e,"constraint6","F6(self) = F4(self)", false);
 			addConstraintToRecord(r1e,"constraint7","F6(self) = F5(self)", true);
 			r1e.setExtended(true);
-			m0.getOrderedChildren().add(r1e);
+			m1.getOrderedChildren().add(r1e);
 			translate(m0);
+			translate(m1);
 			//check the results
-			testMachineVariables("Incorrect variables", m0, "R1", "F4", "F5", "F6");
-			testMachineInvariants("Incorrect axioms",m0, 
+			testMachineVariables("Incorrect variables", m1, "F4", "F5", "F6");
+			testMachineInvariants("Incorrect axioms",m1, 
 				"typeof_R1_F4:F4 ∈ R1 ↔ BOOL:false",
 				"typeof_R1_F5:F5 ∈ R1 → BOOL:false",
 				"typeof_R1_F6:F6 ∈ R1 ⇸ BOOL:false",
