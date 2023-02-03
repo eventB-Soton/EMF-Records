@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: ac.soton.eventb.emf.record.generator;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.2.0.release
 Require-Bundle: org.eclipse.emf.workspace;bundle-version="[1.5.1,2.0.0)",
  org.eventb.emf.core;bundle-version="[6.0.0,7.0.0)",
  ac.soton.eventb.emf.core.extension;bundle-version="[6.0.0,7.0.0)",
