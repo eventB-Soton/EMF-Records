@@ -17,7 +17,7 @@
 <feature
       id="ac.soton.eventb.emf.record.sdk"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.0.release"
       provider-name="%featureVendor"
       license-feature="org.rodinp.licence"
       license-feature-version="1.0.0.release">
@@ -64,7 +64,14 @@
          unpack="false"/>
 
    <plugin
-         id="ac.soton.eventb.emf.record.tests.source"
+         id="ac.soton.eventb.emf.record.ui.source"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ac.soton.eventb.emf.record.generator.tests.source"
          download-size="0"
          install-size="0"
          version="0.0.0"
