@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020 University of Southampton.&#xA;&#xA;This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;    University of Southampton - initial API and implementation"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2020, 2022 University of Southampton.&#xA;&#xA;This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License 2.0&#xA;which accompanies this distribution, and is available at&#xA;https://www.eclipse.org/legal/epl-2.0/&#xA;&#xA;SPDX-License-Identifier: EPL-2.0&#xA;&#xA;Contributors:&#xA;    University of Southampton - initial API and implementation"
     modelDirectory="/ac.soton.eventb.emf.record/src" modelPluginID="ac.soton.eventb.emf.record"
     templateDirectory="/org.eventb.emf.core/templates" dynamicTemplates="true" modelName="Record"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension"
+    complianceLevel="11.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eventb.emf.core/model/eventbcore.genmodel#//core ../../ac.soton.eventb.emf.core.extension/model/eventbcoreextension.genmodel#//coreextension"
     operationReflection="true" importOrganizing="true">
   <foreignModel>record.ecore</foreignModel>
   <genPackages prefix="Record" basePackage="ac.soton.eventb.emf" disposableProviderFactory="true"
@@ -15,12 +15,16 @@
       <genEnumLiterals ecoreEnumLiteral="record.ecore#//Multiplicity/OPTIONAL"/>
     </genEnums>
     <genClasses ecoreClass="record.ecore#//Record">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference record.ecore#//Record/subsets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference record.ecore#//Record/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference record.ecore#//Record/constraints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/inheritsNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/selfName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/extended"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Record/refined"/>
     </genClasses>
     <genClasses ecoreClass="record.ecore#//Field">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Field/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute record.ecore#//Field/multiplicity"/>
     </genClasses>
+    <genClasses ecoreClass="record.ecore#//Constraint"/>
   </genPackages>
 </genmodel:GenModel>

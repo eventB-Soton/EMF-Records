@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,9 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record;
 
@@ -51,6 +49,16 @@ public interface RecordFactory extends EFactory {
 	 * @generated
 	 */
 	Field createField();
+
+	/**
+	 * Returns a new object of class '<em>Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constraint</em>'.
+	 * @generated
+	 */
+	Constraint createConstraint();
 
 	/**
 	 * Returns the package supported by this factory.

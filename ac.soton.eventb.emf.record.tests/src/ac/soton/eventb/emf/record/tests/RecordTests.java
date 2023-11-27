@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,9 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.tests;
 
@@ -46,6 +44,7 @@ public class RecordTests extends TestSuite {
 		TestSuite suite = new RecordTests("record Tests");
 		suite.addTestSuite(RecordTest.class);
 		suite.addTestSuite(FieldTest.class);
+		suite.addTestSuite(ConstraintTest.class);
 		return suite;
 	}
 

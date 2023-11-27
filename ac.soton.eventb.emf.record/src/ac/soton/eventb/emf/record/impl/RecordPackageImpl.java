@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,20 +9,20 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.impl;
 
 import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 
+import ac.soton.eventb.emf.record.Constraint;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.Multiplicity;
 import ac.soton.eventb.emf.record.Record;
 import ac.soton.eventb.emf.record.RecordFactory;
 import ac.soton.eventb.emf.record.RecordPackage;
 
+import ac.soton.eventb.emf.record.util.RecordValidator;
 import org.eclipse.emf.common.util.URI;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -60,6 +61,13 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * @generated
 	 */
 	private EClass fieldEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,6 +133,17 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		// Initialize created meta-data
 		theRecordPackage.initializePackageContents();
 
+//FIXME XText is causing a problem with validation 
+		
+		// Register package validator
+//		EValidator.Registry.INSTANCE.put
+//			(theRecordPackage, 
+//			 new EValidator.Descriptor() {
+//				 public EValidator getEValidator() {
+//					 return RecordValidator.INSTANCE;
+//				 }
+//			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theRecordPackage.freeze();
 
@@ -148,7 +167,7 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecord_Subsets() {
+	public EReference getRecord_Fields() {
 		return (EReference)recordEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -157,8 +176,44 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecord_Fields() {
+	public EReference getRecord_Constraints() {
 		return (EReference)recordEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecord_InheritsNames() {
+		return (EAttribute)recordEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecord_SelfName() {
+		return (EAttribute)recordEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecord_Extended() {
+		return (EAttribute)recordEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecord_Refined() {
+		return (EAttribute)recordEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -175,7 +230,7 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getField_Type() {
+	public EAttribute getField_Multiplicity() {
 		return (EAttribute)fieldEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -184,8 +239,8 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getField_Multiplicity() {
-		return (EAttribute)fieldEClass.getEStructuralFeatures().get(1);
+	public EClass getConstraint() {
+		return constraintEClass;
 	}
 
 	/**
@@ -226,12 +281,17 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 
 		// Create classes and their features
 		recordEClass = createEClass(RECORD);
-		createEReference(recordEClass, RECORD__SUBSETS);
 		createEReference(recordEClass, RECORD__FIELDS);
+		createEReference(recordEClass, RECORD__CONSTRAINTS);
+		createEAttribute(recordEClass, RECORD__INHERITS_NAMES);
+		createEAttribute(recordEClass, RECORD__SELF_NAME);
+		createEAttribute(recordEClass, RECORD__EXTENDED);
+		createEAttribute(recordEClass, RECORD__REFINED);
 
 		fieldEClass = createEClass(FIELD);
-		createEAttribute(fieldEClass, FIELD__TYPE);
 		createEAttribute(fieldEClass, FIELD__MULTIPLICITY);
+
+		constraintEClass = createEClass(CONSTRAINT);
 
 		// Create enums
 		multiplicityEEnum = createEEnum(MULTIPLICITY);
@@ -261,26 +321,34 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CoreextensionPackage theCoreextensionPackage = (CoreextensionPackage)EPackage.Registry.INSTANCE.getEPackage(CoreextensionPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		CoreextensionPackage theCoreextensionPackage = (CoreextensionPackage)EPackage.Registry.INSTANCE.getEPackage(CoreextensionPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		recordEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		recordEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
 		recordEClass.getESuperTypes().add(theCorePackage.getAbstractExtension());
-		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getEventBNamedCommentedDataElaborationElement());
+		fieldEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedElement());
+		fieldEClass.getESuperTypes().add(theCoreextensionPackage.getType());
+		constraintEClass.getESuperTypes().add(theCorePackage.getEventBNamedCommentedDerivedPredicateElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(recordEClass, Record.class, "Record", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecord_Subsets(), this.getRecord(), null, "subsets", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRecord_Fields(), this.getField(), null, "fields", null, 0, -1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Fields(), this.getField(), null, "fields", null, 0, -1, Record.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRecord_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Record.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecord_InheritsNames(), theEcorePackage.getEString(), "inheritsNames", null, 0, -1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecord_SelfName(), ecorePackage.getEString(), "selfName", "self", 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecord_Extended(), ecorePackage.getEBoolean(), "extended", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecord_Refined(), ecorePackage.getEBoolean(), "refined", null, 0, 1, Record.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getField_Type(), ecorePackage.getEString(), "type", null, 1, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getField_Multiplicity(), this.getMultiplicity(), "multiplicity", "ONE", 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");
@@ -294,6 +362,8 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		// Create annotations
 		// org.eventb.emf.core.extendedMetaClasses
 		createOrgAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
 	}
 
 	/**
@@ -312,6 +382,29 @@ public class RecordPackageImpl extends EPackageImpl implements RecordPackage {
 		   new URI[] {
 			 URI.createURI(MachinePackage.eNS_URI).appendFragment("//machine/Machine"),
 			 URI.createURI(ContextPackage.eNS_URI).appendFragment("//context/Context")
+		   });		
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";			
+		addAnnotation
+		  (recordEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "mustHaveAName exclusive_extendsRefinesInherits refinedOnlyInMachines noNewRecordsInMachines"
+		   });		
+		addAnnotation
+		  (fieldEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "fieldsHaveTypesUnlessRefined"
 		   });
 	}
 

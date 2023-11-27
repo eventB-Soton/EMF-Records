@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,15 +9,11 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.util;
 
-import ac.soton.eventb.emf.core.extension.coreextension.EventBDataElaboration;
-import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
-
+import ac.soton.eventb.emf.core.extension.coreextension.Type;
 import ac.soton.eventb.emf.record.*;
 import ac.soton.eventb.emf.record.Record;
 
@@ -29,10 +25,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eventb.emf.core.AbstractExtension;
 import org.eventb.emf.core.EventBCommented;
 import org.eventb.emf.core.EventBCommentedElement;
+import org.eventb.emf.core.EventBDerived;
 import org.eventb.emf.core.EventBElement;
 import org.eventb.emf.core.EventBNamed;
+import org.eventb.emf.core.EventBNamedCommentedDerivedPredicateElement;
 import org.eventb.emf.core.EventBNamedCommentedElement;
+import org.eventb.emf.core.EventBNamedCommentedPredicateElement;
 import org.eventb.emf.core.EventBObject;
+import org.eventb.emf.core.EventBPredicate;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,10 +111,8 @@ public class RecordSwitch<T> {
 			case RecordPackage.RECORD: {
 				Record record = (Record)theEObject;
 				T result = caseRecord(record);
-				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(record);
-				if (result == null) result = caseAbstractExtension(record);
 				if (result == null) result = caseEventBNamedCommentedElement(record);
-				if (result == null) result = caseEventBDataElaboration(record);
+				if (result == null) result = caseAbstractExtension(record);
 				if (result == null) result = caseEventBCommentedElement(record);
 				if (result == null) result = caseEventBNamed(record);
 				if (result == null) result = caseEventBElement(record);
@@ -126,14 +124,29 @@ public class RecordSwitch<T> {
 			case RecordPackage.FIELD: {
 				Field field = (Field)theEObject;
 				T result = caseField(field);
-				if (result == null) result = caseEventBNamedCommentedDataElaborationElement(field);
 				if (result == null) result = caseEventBNamedCommentedElement(field);
-				if (result == null) result = caseEventBDataElaboration(field);
+				if (result == null) result = caseType(field);
 				if (result == null) result = caseEventBCommentedElement(field);
 				if (result == null) result = caseEventBNamed(field);
 				if (result == null) result = caseEventBElement(field);
 				if (result == null) result = caseEventBCommented(field);
 				if (result == null) result = caseEventBObject(field);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RecordPackage.CONSTRAINT: {
+				Constraint constraint = (Constraint)theEObject;
+				T result = caseConstraint(constraint);
+				if (result == null) result = caseEventBNamedCommentedDerivedPredicateElement(constraint);
+				if (result == null) result = caseEventBNamedCommentedPredicateElement(constraint);
+				if (result == null) result = caseEventBDerived(constraint);
+				if (result == null) result = caseEventBNamedCommentedElement(constraint);
+				if (result == null) result = caseEventBPredicate(constraint);
+				if (result == null) result = caseEventBCommentedElement(constraint);
+				if (result == null) result = caseEventBNamed(constraint);
+				if (result == null) result = caseEventBElement(constraint);
+				if (result == null) result = caseEventBCommented(constraint);
+				if (result == null) result = caseEventBObject(constraint);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,6 +181,22 @@ public class RecordSwitch<T> {
 	 * @generated
 	 */
 	public T caseField(Field object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstraint(Constraint object) {
 		return null;
 	}
 
@@ -262,36 +291,6 @@ public class RecordSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event BData Elaboration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event BData Elaboration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventBDataElaboration(EventBDataElaboration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event BNamed Commented Data Elaboration Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event BNamed Commented Data Elaboration Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventBNamedCommentedDataElaborationElement(EventBNamedCommentedDataElaborationElement object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Abstract Extension</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -303,6 +302,86 @@ public class RecordSwitch<T> {
 	 * @generated
 	 */
 	public T caseAbstractExtension(AbstractExtension object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseType(Type object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event BPredicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event BPredicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventBPredicate(EventBPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event BNamed Commented Predicate Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event BNamed Commented Predicate Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventBNamedCommentedPredicateElement(EventBNamedCommentedPredicateElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event BDerived</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event BDerived</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventBDerived(EventBDerived object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event BNamed Commented Derived Predicate Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * @since 1.0
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event BNamed Commented Derived Predicate Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventBNamedCommentedDerivedPredicateElement(EventBNamedCommentedDerivedPredicateElement object) {
 		return null;
 	}
 

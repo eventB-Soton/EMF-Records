@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,13 +9,12 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record;
 
-import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedDataElaborationElement;
+import ac.soton.eventb.emf.core.extension.coreextension.Type;
+import org.eventb.emf.core.EventBNamedCommentedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,42 +24,15 @@ import ac.soton.eventb.emf.core.extension.coreextension.EventBNamedCommentedData
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link ac.soton.eventb.emf.record.Field#getType <em>Type</em>}</li>
  *   <li>{@link ac.soton.eventb.emf.record.Field#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  * </p>
  *
  * @see ac.soton.eventb.emf.record.RecordPackage#getField()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='fieldsHaveTypesUnlessRefined'"
  * @generated
  */
-public interface Field extends EventBNamedCommentedDataElaborationElement {
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
-	 * @see ac.soton.eventb.emf.record.RecordPackage#getField_Type()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getType();
-
-	/**
-	 * Sets the value of the '{@link ac.soton.eventb.emf.record.Field#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(String value);
-
+public interface Field extends EventBNamedCommentedElement, Type {
 	/**
 	 * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
 	 * The default value is <code>"ONE"</code>.

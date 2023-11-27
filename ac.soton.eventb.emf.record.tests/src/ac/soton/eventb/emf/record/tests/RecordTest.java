@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,9 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.tests;
 
@@ -28,6 +26,13 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Record</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getFields() <em>Fields</em>}</li>
+ *   <li>{@link ac.soton.eventb.emf.record.Record#getConstraints() <em>Constraints</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class RecordTest extends TestCase {
@@ -99,6 +104,32 @@ public class RecordTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getFields() <em>Fields</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * @since 0.2
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.record.Record#getFields()
+	 * @generated
+	 */
+	public void testGetFields() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+	}
+
+	/**
+	 * Tests the '{@link ac.soton.eventb.emf.record.Record#getConstraints() <em>Constraints</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * @since 0.2
+	 * <!-- end-user-doc -->
+	 * @see ac.soton.eventb.emf.record.Record#getConstraints()
+	 * @generated
+	 */
+	public void testGetConstraints() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
 	}
 
 	@Test

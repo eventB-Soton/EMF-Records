@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 University of Southampton.
+ * Copyright (c) 2020, 2022 University of Southampton.
  *
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License 2.0
@@ -9,15 +9,12 @@
  * SPDX-License-Identifier: EPL-2.0
  *
  * Contributors:
- *     University of Southampton - initial API and implementation
- *
- * $Id$
+ *    University of Southampton - initial API and implementation
  *******************************************************************************/
 package ac.soton.eventb.emf.record.provider;
 
 
-import ac.soton.eventb.emf.core.extension.coreextension.provider.EventBNamedCommentedDataElaborationElementItemProvider;
-
+import ac.soton.eventb.emf.core.extension.coreextension.CoreextensionPackage;
 import ac.soton.eventb.emf.record.Field;
 import ac.soton.eventb.emf.record.RecordFactory;
 import ac.soton.eventb.emf.record.RecordPackage;
@@ -41,6 +38,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eventb.emf.core.CorePackage;
+import org.eventb.emf.core.provider.EventBNamedCommentedElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link ac.soton.eventb.emf.record.Field} object.
@@ -49,7 +47,7 @@ import org.eventb.emf.core.CorePackage;
  * @generated
  */
 public class FieldItemProvider
-	extends EventBNamedCommentedDataElaborationElementItemProvider
+	extends EventBNamedCommentedElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -94,9 +92,9 @@ public class FieldItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Field_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Field_type_feature", "_UI_Field_type"),
-				 RecordPackage.Literals.FIELD__TYPE,
+				 getString("_UI_Type_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_type_feature", "_UI_Type_type"),
+				 CoreextensionPackage.Literals.TYPE__TYPE,
 				 true,
 				 false,
 				 false,
