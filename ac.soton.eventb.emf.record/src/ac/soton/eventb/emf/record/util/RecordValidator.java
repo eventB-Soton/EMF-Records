@@ -118,6 +118,7 @@ public class RecordValidator extends EObjectValidator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 * @since 1.1
 	 */
 	public boolean validateRecord(Record record, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_NoCircularContainment(record, diagnostics, context);
@@ -143,6 +144,7 @@ public class RecordValidator extends EObjectValidator {
 	 * A record must have a name
 	 * <!-- end-user-doc -->
 	 * @generated not
+	 * @since 1.1
 	 */
 	public boolean validateRecord_mustHaveAName(Record record, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (record.getName()==null || record.getName().trim().length()==0) {
@@ -168,6 +170,7 @@ public class RecordValidator extends EObjectValidator {
 	 * inherits, extended and refined attributes are mutually exclusive
 	 * <!-- end-user-doc -->
 	 * @generated not
+	 * @since 1.1
 	 */
 	public boolean validateRecord_exclusive_extendsRefinesInherits(Record record, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (
@@ -196,6 +199,7 @@ public class RecordValidator extends EObjectValidator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated not
+	 * @since 1.1
 	 */
 	public boolean validateRecord_refinedOnlyInMachines(Record record, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!record.isRefined()) return true;
@@ -224,6 +228,7 @@ public class RecordValidator extends EObjectValidator {
 	 * A record that is in a machine must either inherit, extend or refine
 	 * <!-- end-user-doc -->
 	 * @generated not
+	 * @since 1.1
 	 */
 	public boolean validateRecord_noNewRecordsInMachines(Record record, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (record.isRefined() || record.isExtended() || record.getInheritsNames().size()>0) return true;
